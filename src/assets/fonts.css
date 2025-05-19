@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Cardo;
+    src: url(@/assets/cardo_normal_400.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: LXGW-Wenkai-Screen;
+    src: url(@/assets/LXGWWenKaiGBScreen.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(@/assets/Roboto.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: CrimsomText;
+    src: url(@/assets/CrimsonText-Regular.woff2) format('woff2');
+}
