@@ -48,7 +48,7 @@ const getEntry = async (path) => {
         }
     }
 
-    if(infoRoot.entries.find(x=>x.path == path)){
+    if(infoRoot.entries?.find(x=>x.path == path)){
         found = entryMap[path]
     }else{
         infoRoot.subcategories.map(v=>move(v,[]))

@@ -11,7 +11,4 @@ export default {
         "./Misc",
         "./example",
     ],
-    "entries":[
-        "index.md"
-    ]
 }

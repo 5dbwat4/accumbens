@@ -1,7 +1,7 @@
 <template>
   <div class="breadcrumb" >
     <!-- <n-breadcrumb style="vertical-align: middle"> -->
-      <n-button quaternary circle>
+      <n-button quaternary circle @click="$router.back()">
         <template #icon>
           <n-icon :component="IconChevronLeft"></n-icon>
         </template>

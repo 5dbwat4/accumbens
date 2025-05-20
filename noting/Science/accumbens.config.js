@@ -8,7 +8,4 @@ export default {
         "./CS1032M",
     ],
     name:"数理",
-    "entries":[
-        "index.md"
-    ]
 }

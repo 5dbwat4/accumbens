@@ -5,7 +5,8 @@ export default {
     "subcategories":[
         "./CS1014GZ",
         "./CS1018F",
-        "./CTF101"
+        "./CTF101",
+        "./HPC101",
     ],
     "entries":[ ]
 }

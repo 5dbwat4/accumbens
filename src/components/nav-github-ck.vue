@@ -7,13 +7,17 @@
                 </template>
               </n-button>
       </template>
-      <div class="large-text">
-        啊！
-      </div>
+      <a href="https://github.com/5dbwat4/accumbens" target="_blank">
+
+      <img style="max-width: 360px;" src="https://opengraph.githubassets.com/token/5dbwat4/accumbens"/>
+   </a>
+
+
     </n-popover>
 </template>
 <script setup>
-import { IconGithubLoop } from "@iconify-prerendered/vue-line-md";
+import { IconGithubLoop,IconStar } from "@iconify-prerendered/vue-line-md";
 
 // fetch('https://api.github.com/repos/5dbwat4/note')
+
 </script>
