@@ -2,7 +2,7 @@
     <LetterEffects style="font-size:0.8rem;margin-bottom:48px">
 
 <strong>ATTENTION TIME TRAVELER!</strong>
-<p>You've stumbled into the PDF version of this notebook page - basically the mummified tomb of the original content.</p>
+<p>You've stumbled into the Print version of this notebook page - basically the mummified tomb of the original content.</p>
 <p>▶ Videos here are practicing vow of silence 🧘</p>
 <p>▶ GIFs got frozen in 1995 ❄️</p>
 <p>▶ Some links are napping 💤</p>
