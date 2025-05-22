@@ -80,8 +80,12 @@ if(mdcfg.is_dir){
     await nextTick();
     content_loading_stage.value = 4;
     handleKatexRender();
-  });
+  }) }else{
+    if(route.path.endsWith("/")){
+      router.replace(route.path.slice(0,-1));
+    }
   }
+ 
 }else{
   content_loading_stage.value = 2;
   mdcfg.entry?.then(async (entry) => {

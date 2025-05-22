@@ -6,5 +6,5 @@ export default {
     },
     "entries":"auto",
     "name":"离散数学理论基础",
-    "shown":true,
+    "show":true,
 }

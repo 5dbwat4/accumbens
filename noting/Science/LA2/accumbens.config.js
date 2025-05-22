@@ -6,5 +6,5 @@ export default {
     },
     "entries":"auto",
     "name":"线性代数II",
-    "shown":true,
+    "show":true,
 }

@@ -30,4 +30,6 @@ coverage
 *.tsbuildinfo
 
 
-.vite
+.vite/**
+
+**/.accumbens/**

@@ -17,5 +17,5 @@ export default {
         }
     ],
     "name":"线性代数I",
-    "shown":true,
+    "show":true,
 }

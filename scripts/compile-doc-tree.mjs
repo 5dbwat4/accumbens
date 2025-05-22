@@ -69,6 +69,10 @@ const parsefy = async (importPath) => {
         result.path.push(...robj.path.aliases)
     }
 
+    // Key : show
+
+    result.show = robj.show==undefined?true:robj.show
+
     // Key : name
     result.name = robj.name
 

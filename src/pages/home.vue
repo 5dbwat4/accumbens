@@ -8,9 +8,18 @@
     <n-checkbox :checked="false" v-for = "item in pending" :key="item">
         {{ item }}
     </n-checkbox></n-space>
+
+      <div style="width: 70%">
+    <dirList
+      :entries="[]"
+      :subcategories="navInfo.subcategories.filter((v) => v.show)"
+    />
+  </div>
 </div>
 </template>
 <script setup>
+import { navInfo } from "@/utils/configUtils.js";
+import dirList from "@/components/dir-content-main.vue";
 const finished = [
     "Compiling MD & MDX all done right, as well as rendering them",
     "Indexing those pages ",
@@ -20,6 +29,7 @@ const finished = [
 
 const pending = [
     "Integrate Algolia for search",
+    "Table of Contents!!!",
     "Complete the dark mode",
     "A good 404 page",
 ]

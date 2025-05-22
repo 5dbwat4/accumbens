@@ -6,5 +6,5 @@ export default {
     },
     "entries":"auto",
     "name":"数学分析II",
-    "shown":true,
+    "show":true,
 }

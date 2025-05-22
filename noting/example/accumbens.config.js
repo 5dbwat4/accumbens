@@ -8,5 +8,5 @@ export default {
         "test.md"
     ],
     "name":"example",
-    "shown":false,
+    "show":false,
 }

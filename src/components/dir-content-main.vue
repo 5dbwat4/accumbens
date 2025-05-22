@@ -2,7 +2,7 @@
     <div style="align-items: flex-start;display: flex;flex-direction: column;width:50%;min-width: 320px;margin: auto;padding-top: 20px;">
     <span style="font-family: Cardo;">Subcategories</span>
  <n-button-group vertical size="large" style="width:100%">
-      <n-button style="justify-content: flex-start ;" v-for="cat in $props.subcategories" :key="cat.path[0]" @click="$router.push('/'+cat.path[0]+'/')">
+      <n-button style="justify-content: flex-start ;" v-for="cat in $props.subcategories?.filter(v=>v.show)" :key="cat.path[0]" @click="$router.push('/'+cat.path[0]+'/')">
         <template #icon>
           <n-icon color="rgb(194,195,184)"><IconTextBoxMultipleTwotone/></n-icon>
         </template>
@@ -16,7 +16,7 @@
     <n-divider/>
     <span style="font-family: Cardo;">Entries</span>
      <n-button-group vertical size="large" style="width:50%;min-width: 320px;margin: auto;">
-      <n-button style="justify-content: flex-start ;" v-for="entry in $props.entries" :key="entry.unikey" @click="$router.push($route.path+'/'+entry.path)">
+      <n-button style="justify-content: flex-start ;" v-for="entry in $props.entries?.filter(v=>!v.pathonly)" :key="entry.unikey" @click="$router.push($route.path+'/'+entry.path)" >
         <template #icon>
           <n-icon color="rgb(194,195,184)"><IconFileDocumentFilled/></n-icon>
         </template>

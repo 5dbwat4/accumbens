@@ -6,5 +6,5 @@ export default {
     },
     "entries":"auto",
     "name":"数据结构基础",
-    "shown":true,
+    "show":true,
 }

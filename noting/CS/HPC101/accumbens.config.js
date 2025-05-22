@@ -6,5 +6,5 @@ export default {
     },
     "entries":"auto",
     "name":"HPC101",
-    "shown":true,
+    "show":true,
 }

@@ -7,5 +7,5 @@ export default {
     "entries":"auto",
     "index":"main.md",
     "name":"科目一",
-    "shown":true,
+    "show":true,
 }

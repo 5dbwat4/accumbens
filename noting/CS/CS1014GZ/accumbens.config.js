@@ -10,5 +10,5 @@ export default {
         {file:"-final-exms-.md",path:"final-exms"},
     ],
     "name":"程序设计与算法基础",
-    "shown":true,
+    "show":false,
 }

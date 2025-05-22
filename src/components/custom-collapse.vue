@@ -7,7 +7,7 @@
     <!-- <component v-if="!$attrs.nav.leaf" v-for="item in $attrs.nav.sub" :key="item.key" :is="item"></component> -->
     <custom-collapse
       v-if="!$attrs.nav.leaf"
-      v-for="item in $attrs.nav.subcategories"
+      v-for="item in $attrs.nav.subcategories.filter(v=>v.show)"
       :nav="item"
     ></custom-collapse>
     <n-space vertical style="margin-left: 32px;">
@@ -23,7 +23,7 @@
           <ArrowForwardOutline />
         </n-icon>
       </template>
-      {{ item.title|| item.path }}
+      {{ item.title|| "(no title) /"+item.path }}
       <span class="timeago-suf">{{ timeAgo(item.createdAt) }}</span>
     </n-button></n-space>
   </n-collapse-item>

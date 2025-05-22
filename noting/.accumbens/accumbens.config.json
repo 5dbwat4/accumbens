@@ -3,12 +3,14 @@
         "accumbens.config.js",
         ""
     ],
+    "show": true,
     "name": "ROOT",
     "subcategories": [
         {
             "path": [
                 "CS"
             ],
+            "show": true,
             "name": "CS",
             "subcategories": [
                 {
@@ -17,6 +19,7 @@
                         "Schoolwork/C-Basis",
                         "Schoolwork/CS1014GZ"
                     ],
+                    "show": false,
                     "name": "程序设计与算法基础",
                     "leaf": true,
                     "entries": [
@@ -55,6 +58,7 @@
                         "CS/CS1018F",
                         "CS/FDS"
                     ],
+                    "show": true,
                     "name": "数据结构基础",
                     "leaf": true,
                     "entries": [
@@ -111,6 +115,7 @@
                         "CS/CS1264M",
                         "CS/CTF101"
                     ],
+                    "show": true,
                     "name": "CTF101",
                     "leaf": true,
                     "index": "9e95c4b63f8436024f2d17f51a00e9a78f4d348f03fea65fcfb3e841bb6e8daa",
@@ -127,9 +132,9 @@
                         {
                             "title": "Lab 0 Report",
                             "createdAt": 1747622894430,
-                            "updatedAt": 1747758627909,
-                            "wordcount": 1779,
-                            "unikey": "c941c7232900a689bff4b747967382e861ddac0fdbdc0f7689d80d46cd45fdd6",
+                            "updatedAt": 1747761212501,
+                            "wordcount": 1782,
+                            "unikey": "79e49c0d1db6e2cd0d4f5ceb38a5e9bbdae591e8b359df730d9c986503b1b8bb",
                             "pathonly": false,
                             "path": "lab0"
                         }
@@ -141,6 +146,7 @@
                         "CS/CS1030M",
                         "CS/HPC101"
                     ],
+                    "show": true,
                     "name": "HPC101",
                     "leaf": true,
                     "index": "675a0c6dba01ff4c93fcee535f2654fe44ada304999e7558562692ea6f5a929d",
@@ -172,6 +178,7 @@
             "path": [
                 "Science"
             ],
+            "show": true,
             "name": "数理",
             "subcategories": [
                 {
@@ -179,6 +186,7 @@
                         "Schoolwork/LA1",
                         "Schoolwork/MATH1261GH"
                     ],
+                    "show": true,
                     "name": "线性代数I",
                     "leaf": true,
                     "entries": [
@@ -216,6 +224,7 @@
                         "Schoolwork/LA2",
                         "Schoolwork/MATH1262GH"
                     ],
+                    "show": true,
                     "name": "线性代数II",
                     "leaf": true,
                     "entries": [
@@ -307,6 +316,7 @@
                         "Schoolwork/PHY1",
                         "Schoolwork/PHY1001GH"
                     ],
+                    "show": true,
                     "name": "普通物理学I",
                     "leaf": true,
                     "index": "9f95884063398fcc229170b111c1f7dc78e3b16b37db87a2728ebd144d272836",
@@ -480,6 +490,7 @@
                         "Schoolwork/MA2",
                         "Schoolwork/MATH1164GH"
                     ],
+                    "show": true,
                     "name": "数学分析II",
                     "leaf": true,
                     "index": "ea52ee7cbbbb7e5ae3436f8546c4f0c69801a88e115c692d538a07b3adc35b86",
@@ -643,6 +654,7 @@
                     "path": [
                         "Schoolwork/CS1032M"
                     ],
+                    "show": true,
                     "name": "离散数学理论基础",
                     "leaf": true,
                     "index": "11a7073ed932a8674f10d33f125680dca694d77a2a55133288df8487e9e3ffb6",
@@ -880,6 +892,7 @@
             "path": [
                 "Others"
             ],
+            "show": true,
             "name": "其它课程",
             "subcategories": [
                 {
@@ -887,6 +900,7 @@
                         "Schoolwork/EDU2001G",
                         "Others/EDU2001G"
                     ],
+                    "show": true,
                     "name": "军事理论",
                     "leaf": true,
                     "entries": [
@@ -905,6 +919,7 @@
                     "path": [
                         "Schoolwork/PSY0600G"
                     ],
+                    "show": true,
                     "name": "心理学与应用",
                     "leaf": true,
                     "index": "465004d70ecfb8d91d6c5a039268b5a974c64b82aac9a5c6b7acd59f6ae09a31",
@@ -1205,12 +1220,14 @@
             "path": [
                 "misc"
             ],
+            "show": true,
             "name": "杂项",
             "subcategories": [
                 {
                     "path": [
                         "Misc/kemu1"
                     ],
+                    "show": true,
                     "name": "科目一",
                     "leaf": true,
                     "index": "b36881a7af6c8eeba57e26515d74004f95ec520ae4d2d21869796387b379c80d",
@@ -1270,6 +1287,43 @@
                             "path": "rel-law-4"
                         }
                     ]
+                },
+                {
+                    "path": [
+                        "Misc/jijifenzi"
+                    ],
+                    "show": false,
+                    "name": "入党积极分子考试复习",
+                    "leaf": true,
+                    "entries": [
+                        {
+                            "title": "后日谈",
+                            "createdAt": 1747929201925,
+                            "updatedAt": 1747929222877,
+                            "wordcount": 5,
+                            "unikey": "52132b7914bfb0108306d277adf1e6ffc03a3df9b6798ef61acedfc87477cce7",
+                            "pathonly": false,
+                            "path": "epilogue"
+                        },
+                        {
+                            "title": "笔记本",
+                            "createdAt": 1747929228593,
+                            "updatedAt": 1747929416298,
+                            "wordcount": 0,
+                            "unikey": "5a122945ecd36f86201ef2115bd07dfad9d5c4c1d97aae8827a14648c836cad9",
+                            "pathonly": false,
+                            "path": "notebook"
+                        },
+                        {
+                            "title": "揭幕曲",
+                            "createdAt": 1747929090907,
+                            "updatedAt": 1747929440821,
+                            "wordcount": 0,
+                            "unikey": "c2e16f5dff0c6f5747601d79136c1bd73480374b47a7dc721519c055095782e5",
+                            "pathonly": false,
+                            "path": "prologue"
+                        }
+                    ]
                 }
             ],
             "entries": []
@@ -1278,6 +1332,7 @@
             "path": [
                 "example"
             ],
+            "show": false,
             "name": "example",
             "leaf": true,
             "entries": [

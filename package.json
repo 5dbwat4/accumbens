@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "vite build"
+    "build": "node scripts/compile-doc-tree.mjs && vite build"
   },
   "type": "module",
   "keywords": [],

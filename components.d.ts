@@ -42,6 +42,7 @@ declare module 'vue' {
     NSelect: typeof import('naive-ui')['NSelect']
     NSkeleton: typeof import('naive-ui')['NSkeleton']
     NSpace: typeof import('naive-ui')['NSpace']
+    NSwitch: typeof import('naive-ui')['NSwitch']
     NText: typeof import('naive-ui')['NText']
     NUl: typeof import('naive-ui')['NUl']
     Onthispage: typeof import('./src/components/onthispage.vue')['default']
