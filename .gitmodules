@@ -1,0 +1,3 @@
+[submodule "noting"]
+	path = noting
+	url = https://github.com/5dbwat4/note.git
