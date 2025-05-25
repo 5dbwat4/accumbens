@@ -1,8 +1,0 @@
-key: Misc
-title: 'Misc'
-leaf: false
-aliases: 
-  - 'misc'
-
-sub:
-  - kemu1

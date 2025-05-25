@@ -1,34 +1,62 @@
 <template>
- <print-notin class="print-only"/>
-  <BreadCrumbx :breadcrumb="mdcfg.breadcrumb" />
-  <n-h1 prefix="bar" v-if="mdcfg.title"
+  <print-notin class="print-only" />
+  <BreadCrumbx
+    :breadcrumb="mdcfg.breadcrumb"
+    v-if="content_loading_stage >= 1"
+  />
+  <n-h1 prefix="bar" v-if="content_loading_stage >= 1 && mdcfg.title"
     ><span class="heading-overwrite">{{ mdcfg.title }}</span></n-h1
   >
   <!-- <aside class="side-nav">
     <component :is="_SideNavComp" />
   </aside> -->
   <!-- <Onthispage :toc="toc" /> -->
-  <main class="markdown-body" id="markdown-body">
-    <LoadingSkeletons v-if="content_loading_stage == 2 || content_loading_stage == 1" />
+  <main
+    class="markdown-body"
+    id="markdown-body"
+    v-if="content_loading_stage >= 1"
+  >
+    <LoadingSkeletons
+      v-if="content_loading_stage == 2 || content_loading_stage == 1"
+    />
     <!-- <p>Loading stage: {{ (["Before all","Metadata calculated","Receiving content","Rendering","Fulfilled"])[content_loading_stage] }}</p> -->
-    <render :components="defaultComponents" v-if="content_loading_stage == 3 || content_loading_stage == 4"/>
-    <dirList v-if="content_loading_stage == 3 && mdcfg.is_dir" 
-    :entries="mdcfg.entries" :subcategories="mdcfg.subcategories"/>
+    <render
+      :components="defaultComponents"
+      v-if="content_loading_stage == 3 || content_loading_stage == 4"
+    />
+    <dirList
+      v-if="content_loading_stage == 3 && mdcfg.is_dir"
+      :entries="mdcfg.entries"
+      :subcategories="mdcfg.subcategories"
+    />
   </main>
-
-  <hr v-if="mdcfg.createdAt && mdcfg.updatedAt"/>
-  <p class="postconfig-bottom" v-if="mdcfg.createdAt">
-    <n-icon :component="IconCalendarAddOn" />
-    <span>Create At : {{ date_format(mdcfg.createdAt || "") }}</span>
-  </p>
-  <p class="postconfig-bottom" v-if="mdcfg.updatedAt">
-    <n-icon :component="IconEditCalendar" />
-    <span>Last Update : {{ date_format(mdcfg.updatedAt || "") }}</span>
-  </p>
+  <div v-if="content_loading_stage > 1">
+    <hr v-if="mdcfg.createdAt && mdcfg.updatedAt" />
+    <p class="postconfig-bottom" v-if="mdcfg.createdAt">
+      <n-icon :component="IconCalendarAddOn" />
+      <span>Create At : {{ date_format(mdcfg.createdAt || "") }}</span>
+    </p>
+    <p class="postconfig-bottom" v-if="mdcfg.updatedAt">
+      <n-icon :component="IconEditCalendar" />
+      <span>Last Update : {{ date_format(mdcfg.updatedAt || "") }}</span>
+    </p>
+  </div>
+  <div v-if="content_loading_stage == -404">
+    <n-h1 prefix="bar">404 Not Found</n-h1>
+    <p>Sorry, the page you are looking for does not exist.</p>
+    <notFoundPage />
+  </div>
 </template>
 <script setup>
 import { useRoute, useRouter } from "vue-router";
-import { h, nextTick, onMounted, ref, shallowRef } from "vue";
+import {
+  defineAsyncComponent,
+  h,
+  nextTick,
+  onMounted,
+  ref,
+  shallowRef,
+} from "vue";
 import LoadingSkeletons from "./components/LoadingSkeletons.vue";
 import { handleKatexRender } from "./utils/handleKatexRender";
 import { getEntry } from "./utils/configUtils";
@@ -50,7 +78,18 @@ const router = useRouter();
 
 const path = ref(route.path);
 
-const content_loading_stage = ref(0);
+const available = ref(true);
+const notFoundPage = defineAsyncComponent(() => import("@/pages/404.vue"));
+
+const content_loading_stage = ref(
+  0 /**
+0: Before all
+1: config loaded
+3: entry loading ok
+4: render ok
+-404: 404 page
+*/
+);
 const mdcfg = await getEntry(path.value.slice(1));
 content_loading_stage.value = 1;
 
@@ -61,45 +100,46 @@ console.log(mdcfg);
 const defaultComponents = {
   "acc-heading": AccHeading,
   "code-blocks": CodeBlocks,
-  "table": NTable,
+  table: NTable,
   "element-a": ElementAHandler,
-  "n-image":NImage,
+  "n-image": NImage,
 };
 
 // const _SideNavComp = shallowRef(h("div"));
 
 const render = shallowRef(null);
 
-if(mdcfg.is_dir){
-  content_loading_stage.value = 3;
-  if(mdcfg.index){
-    mdcfg.entry?.then(async (entry) => {
-    // console.log(entry);
-    render.value = entry.default;
+if (!mdcfg) {
+  content_loading_stage.value = -404;
+} else {
+  if (mdcfg.is_dir) {
     content_loading_stage.value = 3;
-    await nextTick();
-    content_loading_stage.value = 4;
-    handleKatexRender();
-  }) }else{
-    if(route.path.endsWith("/")){
-      router.replace(route.path.slice(0,-1));
+    if (mdcfg.index) {
+      mdcfg.entry?.then(async (entry) => {
+        // console.log(entry);
+        render.value = entry.default;
+        content_loading_stage.value = 3;
+        await nextTick();
+        content_loading_stage.value = 4;
+        handleKatexRender();
+      });
+    } else {
+      if (route.path.endsWith("/")) {
+        router.replace(route.path.slice(0, -1));
+      }
     }
+  } else {
+    content_loading_stage.value = 2;
+    mdcfg.entry?.then(async (entry) => {
+      // console.log(entry);
+      render.value = entry.default;
+      content_loading_stage.value = 3;
+      await nextTick();
+      content_loading_stage.value = 4;
+      handleKatexRender();
+    });
   }
- 
-}else{
-  content_loading_stage.value = 2;
-  mdcfg.entry?.then(async (entry) => {
-    // console.log(entry);
-    render.value = entry.default;
-    content_loading_stage.value = 3;
-    await nextTick();
-    content_loading_stage.value = 4;
-    handleKatexRender();
-  });
-
 }
-
-
 onMounted(() => {
   handleKatexRender();
 });
@@ -115,7 +155,7 @@ onMounted(() => {
 }
 .markdown-body {
   /* font-family: LXGW-Wenkai-Screen; */
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   /* font-size: 1.2em; */
   /* line-height: 1.8em; */
   /* padding: 1em; */
@@ -154,10 +194,10 @@ onMounted(() => {
 .print-only {
   display: none;
 }
-@media print{
-  .print-only{
+@media print {
+  .print-only {
     display: block;
-  } 
+  }
 }
 </style>
 
