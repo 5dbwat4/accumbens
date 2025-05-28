@@ -24,7 +24,7 @@
         </n-icon>
       </template>
       {{ item.title|| "(no title) /"+item.path }}
-      <span class="timeago-suf">{{ timeAgo(item.createdAt) }}</span>
+      <span class="timeago-suf">{{ timeAgo(item.updatedAt) }}</span>
     </n-button></n-space>
   </n-collapse-item>
 </template>

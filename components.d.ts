@@ -32,8 +32,6 @@ declare module 'vue' {
     NFormItem: typeof import('naive-ui')['NFormItem']
     NH1: typeof import('naive-ui')['NH1']
     NIcon: typeof import('naive-ui')['NIcon']
-    NInputGroupLabel: typeof import('naive-ui')['NInputGroupLabel']
-    NInputGroupLable: typeof import('naive-ui')['NInputGroupLable']
     NLi: typeof import('naive-ui')['NLi']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NNotificationProvider: typeof import('naive-ui')['NNotificationProvider']
@@ -42,7 +40,6 @@ declare module 'vue' {
     NSelect: typeof import('naive-ui')['NSelect']
     NSkeleton: typeof import('naive-ui')['NSkeleton']
     NSpace: typeof import('naive-ui')['NSpace']
-    NSwitch: typeof import('naive-ui')['NSwitch']
     NText: typeof import('naive-ui')['NText']
     NUl: typeof import('naive-ui')['NUl']
     Onthispage: typeof import('./src/components/onthispage.vue')['default']
@@ -53,5 +50,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SideNav: typeof import('./src/components/side-nav.vue')['default']
     SwitchLightDark: typeof import('./src/components/switch-light-dark.vue')['default']
+    WorkingEnvironmentLabel: typeof import('./src/components/md-comp/working-environment-label.vue')['default']
   }
 }

@@ -31,11 +31,11 @@
     />
   </main>
   <div v-if="content_loading_stage > 1">
-    <hr v-if="mdcfg.createdAt && mdcfg.updatedAt" />
-    <p class="postconfig-bottom" v-if="mdcfg.createdAt">
+    <hr v-if="mdcfg.updatedAt" />
+    <!-- <p class="postconfig-bottom" v-if="mdcfg.createdAt">
       <n-icon :component="IconCalendarAddOn" />
       <span>Create At : {{ date_format(mdcfg.createdAt || "") }}</span>
-    </p>
+    </p> -->
     <p class="postconfig-bottom" v-if="mdcfg.updatedAt">
       <n-icon :component="IconEditCalendar" />
       <span>Last Update : {{ date_format(mdcfg.updatedAt || "") }}</span>

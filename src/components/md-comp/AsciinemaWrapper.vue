@@ -22,17 +22,41 @@ const asciinemaContainer = useTemplateRef("asciinemaContainer");
 const props = defineProps({
   cast: {
     type: String,
-    required: true,
   },
+  url: {
+    type: String,
+  }
 });
 
 const downloadCastFile = () => {
+  if(props.cast){
   saveAs(new Blob([props.cast]), "data.cast");
+  }else if(props.url){
+    // If a URL is provided, we can fetch the file and then save it
+    fetch(props.url)
+      .then(response => response.blob())
+      .then(blob => {
+        saveAs(blob, "data.cast");
+      })
+      .catch(error => {
+        console.error("Error downloading the cast file:", error);
+      });
+  } else {
+    console.error("Not enough args provided for Asciinema player.");
+  }
+  
 };
 
 onMounted(() => {
   // Initialize the Asciinema player
+  // Prefer cast data first
+  if(props.cast){
   AsciinemaPlayer.create({ data: props.cast }, asciinemaContainer.value);
+  }else if(props.url){
+    AsciinemaPlayer.create(props.url, asciinemaContainer.value);
+  } else {
+    console.error("Not enough args provided for Asciinema player.");
+  }
 });
 </script>
 <style>

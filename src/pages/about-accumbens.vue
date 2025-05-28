@@ -2,6 +2,9 @@
    <n-h1 prefix="bar">
     <span class="heading-overwrite">About Accumbens</span>
   </n-h1>
+
+  <n-p>Note this page has been deprecated.</n-p>
+
   <n-p>Accumbens is the framework behind my notebook.</n-p>
 
   <div class="showcard">
