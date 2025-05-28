@@ -128,7 +128,7 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
+<style>
 .header-block {
   font-style: normal;
   font-weight: 400;
