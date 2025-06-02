@@ -4,6 +4,7 @@
     :breadcrumb="mdcfg.breadcrumb"
     v-if="content_loading_stage >= 1"
   />
+  <index-alternative-switch v-if="(mdcfg.is_dir && mdcfg.index) || mdcfg.is_index"/>
   <n-h1 prefix="bar" v-if="content_loading_stage >= 1 && mdcfg.title"
     ><span class="heading-overwrite">{{ mdcfg.title }}</span></n-h1
   >
@@ -71,6 +72,7 @@ import CodeBlocks from "./components/md-comp/CodeBlocks.vue";
 import dirList from "./components/dir-content-main.vue";
 import ElementAHandler from "./components/md-comp/element-a-handler.vue";
 import printNotin from "./components/print-notin.vue";
+import IndexAlternativeSwitch from "./components/index-alternative-switch.vue";
 // import infoRoot from "@notebook-entry/accumbens.config.json"
 
 const route = useRoute();
@@ -91,6 +93,9 @@ const content_loading_stage = ref(
 */
 );
 const mdcfg = await getEntry(path.value.slice(1));
+
+console.log("mdcfg", mdcfg);
+
 content_loading_stage.value = 1;
 
 console.log(mdcfg);
@@ -143,6 +148,8 @@ if (!mdcfg) {
 onMounted(() => {
   handleKatexRender();
 });
+
+router.
 </script>
 
 <style scoped>

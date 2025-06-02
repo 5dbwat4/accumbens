@@ -17,6 +17,7 @@ declare module 'vue' {
     DirContentMain: typeof import('./src/components/dir-content-main.vue')['default']
     Downloadcard: typeof import('./src/components/md-comp/downloadcard.vue')['default']
     ElementAHandler: typeof import('./src/components/md-comp/element-a-handler.vue')['default']
+    IndexAlternativeSwitch: typeof import('./src/components/index-alternative-switch.vue')['default']
     LetterEffects: typeof import('./src/components/md-comp/letter-effects.vue')['default']
     LoadingSkeletons: typeof import('./src/components/LoadingSkeletons.vue')['default']
     NavGithubCk: typeof import('./src/components/nav-github-ck.vue')['default']

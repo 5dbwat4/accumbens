@@ -22,12 +22,13 @@ const url = window.location.href;
 const qrcode = ref("");
 
 
-  QRCode.toDataURL(url, { width: 512, margin: 1, color: { dark: "#000000", light: "#ffffff00" } })
-    .then((dataUrl) => {
+  QRCode.toString(url, { width: 512, margin: 1, color: { dark: "#000000", light: "#ffffff00" },
+type: "svg" })
+    .then((svg) => {
+      const svgBlob = new Blob([svg], { type: "image/svg+xml" });
+      const dataUrl = URL.createObjectURL(svgBlob);
+      // return dataUrl;
       qrcode.value = dataUrl;
     })
-    .catch((err) => {
-      console.error(err);
-    });
 
 </script>

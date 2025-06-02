@@ -9,17 +9,12 @@
         {{ item }}
     </n-checkbox></n-space>
 
-      <div style="width: 70%">
-    <dirList
-      :entries="[]"
-      :subcategories="navInfo.subcategories.filter((v) => v.show)"
-    />
-  </div>
+
 </div>
 </template>
 <script setup>
-import { navInfo } from "@/utils/configUtils.js";
-import dirList from "@/components/dir-content-main.vue";
+// import { navInfo } from "@/utils/configUtils.js";
+// import dirList from "@/components/dir-content-main.vue";
 const finished = [
     "Compiling MD & MDX all done right, as well as rendering them",
     "Indexing those pages ",
