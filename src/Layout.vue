@@ -149,7 +149,6 @@ onMounted(() => {
   handleKatexRender();
 });
 
-router.
 </script>
 
 <style scoped>

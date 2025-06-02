@@ -47,10 +47,10 @@ function getPageModuleNameFromPath(path) {
 export default defineConfig({
   plugins: [
     VueRouter(),
-    // Pages({
-    //   dirs: 'src/pages',  // 需要生成路由的文件目录
-    //   exclude: ['**/components/*.vue']  // 排除在外的目录，即所有 components 目录下的 .vue 文件都不会生成路由
-    // }),
+    Pages({
+      dirs: 'src/pages',  // 需要生成路由的文件目录
+      exclude: ['**/components/*.vue']  // 排除在外的目录，即所有 components 目录下的 .vue 文件都不会生成路由
+    }),
     remarkToolchain(),
     Vue(),
     VueJsx(),
@@ -60,10 +60,6 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver(), NaiveUiResolver()],
     }),
-    encryptPlugin([
-      {path: 'CS/CTF101/lab0.mdx',key:"opt"      },
-      {path: 'CS/CTF101/index.md',key:"opt"      },
-    ])
 
   ],
   resolve: {
@@ -88,9 +84,6 @@ export default defineConfig({
         // },
       },
     },
-    lib:{
-      formats:['umd'],
-    }
   },
   server: {
     fs: {
