@@ -10,6 +10,10 @@ export const handleKatexRender = () => {
     const html = katex.renderToString(math, {
       displayMode: display,
       throwOnError: false,
+      macros: {
+        "\\abs":"\\left|#1\\right|",
+        "\\verticleLine":"|",
+      }
     });
     el.outerHTML = html;
   });

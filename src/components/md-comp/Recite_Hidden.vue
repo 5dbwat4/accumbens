@@ -12,7 +12,7 @@ const show = ref(false);
 
 <style >
 .recite-box{
-    display: inline-flex;
+    display: inline-block;
     transition: color 0.2s ease-in-out;
     padding: 0.1rem 0.5rem;
 

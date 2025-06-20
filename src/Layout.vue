@@ -4,7 +4,7 @@
     :breadcrumb="mdcfg.breadcrumb"
     v-if="content_loading_stage >= 1"
   />
-  <index-alternative-switch v-if="(mdcfg.is_dir && mdcfg.index) || mdcfg.is_index"/>
+  <index-alternative-switch v-if="content_loading_stage >= 1 && ((mdcfg.is_dir && mdcfg.index) || mdcfg.is_index)"/>
   <n-h1 prefix="bar" v-if="content_loading_stage >= 1 && mdcfg.title"
     ><span class="heading-overwrite">{{ mdcfg.title }}</span></n-h1
   >
@@ -73,6 +73,7 @@ import dirList from "./components/dir-content-main.vue";
 import ElementAHandler from "./components/md-comp/element-a-handler.vue";
 import printNotin from "./components/print-notin.vue";
 import IndexAlternativeSwitch from "./components/index-alternative-switch.vue";
+import { restoreReadingPosition,stopReadingProgressTracking } from "./utils/bookmark";
 // import infoRoot from "@notebook-entry/accumbens.config.json"
 
 const route = useRoute();
@@ -142,11 +143,23 @@ if (!mdcfg) {
       await nextTick();
       content_loading_stage.value = 4;
       handleKatexRender();
+      await restoreReadingPosition();
     });
   }
 }
 onMounted(() => {
   handleKatexRender();
+});
+
+router.beforeEach((to, from, next) => {
+  // console.log("beforeEach", to, from);
+  if (to.path !== from.path) {
+    content_loading_stage.value = 0;
+    mdcfg.entry = null;
+    render.value = null;
+    stopReadingProgressTracking();
+  }
+  next();
 });
 
 </script>

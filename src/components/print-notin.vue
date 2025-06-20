@@ -10,7 +10,7 @@
 <p>But don't worry, the real deal is just a click away! 🖱️</p>
 <p>Click <a :href="url">{{url}}</a> to teleport to the live version of this page.</p>
 <div style="text-align: center; margin: 20px 0;">
-<img :src="qrcode" style="width:128px;height: 128px;display: block;margin:0 auto;"/>
+<img loading="lazy"  :src="qrcode" style="width:128px;height: 128px;display: block;margin:0 auto;"/>
 </div>
     </LetterEffects>
 </template>

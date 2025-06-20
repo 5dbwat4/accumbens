@@ -24,11 +24,11 @@
               </n-button>
               <SwitchLightDark />
               
-              <!-- <n-button quaternary circle @click="$router.push('/settings')">
+              <n-button quaternary circle @click="$router.push('/settings')">
                 <template #icon>
                   <n-icon :component="SettingsOutline"></n-icon>
                 </template>
-              </n-button> -->
+              </n-button>
               <n-divider vertical></n-divider>
               <!-- <n-button quaternary circle>
                 <template #icon>

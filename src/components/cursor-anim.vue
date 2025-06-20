@@ -4,7 +4,8 @@
 </template>
 <script setup>
 import { onMounted } from "vue";
-
+import { isMobile } from "@/utils/isMobile";
+import state from "@/utils/storage";
 onMounted(() => {
   var cursor = {
     delay: 8,
@@ -21,6 +22,7 @@ onMounted(() => {
       // Set up element sizes
       this.dotSize = this.$dot.offsetWidth;
       this.outlineSize = this.$outline.offsetWidth;
+      document.body.style.cursor = "none";
 
       this.setupEventListeners();
       this.animateDotOutline();
@@ -48,7 +50,11 @@ onMounted(() => {
       // Anchor hovering
       document.querySelectorAll("*:not(.katex)").forEach(function (el) {
         // console.log("init", el);
-        if (window.getComputedStyle(el).cursor === "pointer" || el.tagName === "A" || el.tagName === "BUTTON") {
+        if (
+          window.getComputedStyle(el).cursor === "pointer" ||
+          el.tagName === "A" ||
+          el.tagName === "BUTTON"
+        ) {
           el.style.cursor = "none";
           el.addEventListener("mouseover", function () {
             // console.log(self_);
@@ -104,14 +110,13 @@ onMounted(() => {
         self.toggleCursorSize();
       });
 
-      let lastEventTriggered = new Date()
+      let lastEventTriggered = new Date();
       let latencyDetectedCount = 0;
 
       document.addEventListener("mousemove", function (e) {
         // Show the cursor
         self.cursorVisible = true;
         self.toggleCursorVisibility();
-        
 
         // Position the dot
         self.endX = e.clientX;
@@ -171,16 +176,18 @@ onMounted(() => {
       }
     },
   };
-  cursor.init();
-  // window.updateCursorAnim = () => {
-  //   cursor.initAnchors();
-  // };
-  const observer = new MutationObserver(() => {
-    cursor.initAnchors();
-  });
 
-  // 开始监听整个文档的变化
-  observer.observe(document.body, { childList: true, subtree: true });
+  if (!isMobile() && state.value.cursorAnim) {
+    cursor.init();
+    // window.updateCursorAnim = () => {
+    //   cursor.initAnchors();
+    // };
+    const observer = new MutationObserver(() => {
+      cursor.initAnchors();
+    });
+    // 开始监听整个文档的变化
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
 });
 </script>
 
@@ -210,7 +217,7 @@ onMounted(() => {
   background-color: rgba(163, 235, 173, 0.339);
 }
 
-@media print{
+@media print {
   .cursor-dot,
   .cursor-dot-outline {
     display: none;
@@ -219,10 +226,10 @@ onMounted(() => {
 </style>
 
 <style>
-html,
+/* html,
 html *,
 body,
 body * {
   cursor: none;
-}
+} */
 </style>

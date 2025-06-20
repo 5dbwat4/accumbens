@@ -1,6 +1,6 @@
 <template>
     <n-h1 prefix="bar">Settings</n-h1>
-<n-card title="Theme & Style" content-style="background:transparent">
+<!-- <n-card title="Theme & Style" content-style="background:transparent">
 <p>Of course we know that agreement exceeds configuration, however the themes below are 
 all my favour.</p>
 <n-form-item label="Font style">
@@ -12,17 +12,18 @@ all my favour.</p>
 </div>
 </n-space>
 </n-form-item>
+</n-card> -->
+
+<n-card title="鼠标指针效果" content-style="background:transparent">
+<n-p>*关闭鼠标指针效果后需刷新页面以同步更改</n-p>
+<n-form-item label="开启鼠标指针效果" label-placement="left">
+<n-switch v-model:value="state.cursorAnim" />
+
+</n-form-item>
 </n-card>
 </template>
 <script setup>
-import {useStorage} from "@vueuse/core"
-
-const state = useStorage(
-  '5dbwat4-proj--accumbens--settings',
-  { fontStyle:"XLWK" },
-  localStorage,
-  { mergeDefaults: true } // <--
-)
+import state from "@/utils/storage";
 
 //-====== Font Style ==================================================
 

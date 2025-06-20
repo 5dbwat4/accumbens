@@ -24,3 +24,19 @@ defineProps({
 });
 
 </script>
+<style>
+  .markdown-body .acc-a{
+    color: var(--fgColor-anchor-default);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-style: dashed;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .markdown-body .acc-a:hover {
+    color: var(--fgColor-anchor-onhover);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  </style>

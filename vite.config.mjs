@@ -60,6 +60,11 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver(), NaiveUiResolver()],
     }),
+    encryptPlugin([
+      {path: 'CS/CTF101/lab0.mdx',key:"opt"      },
+      {path: 'CS/CTF101/index.md',key:"opt"      },
+    ])
+
 
   ],
   resolve: {
@@ -67,7 +72,8 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       // 'vue': 'vue/dist/vue.esm-bundler.js',
       '@notes': fileURLToPath(new URL('./noting', import.meta.url)),
-      '@notebook-entry': fileURLToPath(new URL('./noting/.accumbens', import.meta.url))
+      '@notebook-entry': fileURLToPath(new URL('./noting/.accumbens', import.meta.url)),
+      "@md-components": fileURLToPath(new URL('./src/components/md-comp', import.meta.url)),
     }
   },
   build: {

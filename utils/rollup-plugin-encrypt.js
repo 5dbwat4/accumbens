@@ -20,6 +20,8 @@ export default function encryptPlugin(rules = []) {
       // 如果没有匹配到任何规则，则不进行加密处理
       return null;
     }
+    console.log(code);
+    
     console.log(`Processing chunk:`,chunk);
     return `
     ${Object.entries(chunk.importedBindings).map(([key,imports]) => imports.length===0?`import ${key}`:`import {imports.}`).join('\n')}
