@@ -35,7 +35,7 @@
   <n-divider></n-divider>
 
   <n-p>
-    <a class="link-style">Click here</a> to view the list of all 3rd-party libraries used in the framework.
+    <n-button text @click="$router.push('/3rd-party-libs')">Click here</n-button> to view the list of all 3rd-party libraries used in the framework.
   </n-p>
 </template>
 <script setup></script>

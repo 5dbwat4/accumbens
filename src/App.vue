@@ -12,11 +12,11 @@
               >
             </div>
             <div class="header-right">
-              <n-button quaternary circle>
+              <!-- <n-button quaternary circle>
                 <template #icon>
                   <n-icon :component="IconSearchTwotone"></n-icon>
                 </template>
-              </n-button>
+              </n-button> -->
               <n-button quaternary circle @click="$router.push('/contents')">
                 <template #icon>
                   <n-icon :component="IconList3Twotone"></n-icon>

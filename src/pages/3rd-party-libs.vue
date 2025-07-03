@@ -3,17 +3,12 @@
     <span class="heading-overwrite">3rd-party Libraries</span>
   </n-h1>
     <n-p>Here is a list of 3rd-party libraries used in the framework:</n-p>
-    <n-ul>
-        <n-li>Vue 3</n-li>
-        <n-li>Vue Router</n-li>
-        <n-li>Naive UI</n-li>
-        <n-li>Markdown-it</n-li>
-        <n-li>Katex</n-li>
-    </n-ul>
+    <third-party-lib-card v-for="library in _3rd_party_libs" :key="library.name" :library="library" />
     <n-p>And specially thanks to xecades/Alpha for its inspiration.</n-p>
 </template>
 <script setup>
-
+import _3rd_party_libs from 'virtual:get-3rd-party-libs';
+import thirdPartyLibCard from '@/components/3rd-party-lib-card.vue';
 </script>
 
 <style scoped>

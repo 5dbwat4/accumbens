@@ -15,6 +15,7 @@ import Pages from 'vite-plugin-pages';
 import remarkToolchain from './utils/remark-toolchain'
 
 import encryptPlugin from './utils/rollup-plugin-encrypt'
+import list3rdpartylist from './utils/unplugin-list-3rd-party-libs'
 
 
 function getModuleNameFromPath(path) {
@@ -60,10 +61,11 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver(), NaiveUiResolver()],
     }),
-    encryptPlugin([
-      {path: 'CS/CTF101/lab0.mdx',key:"opt"      },
-      {path: 'CS/CTF101/index.md',key:"opt"      },
-    ])
+    // encryptPlugin([
+    //   {path: 'CS/CTF101/lab0.mdx',key:"opt"      },
+    //   {path: 'CS/CTF101/index.md',key:"opt"      },
+    // ]),
+    list3rdpartylist(),
 
 
   ],

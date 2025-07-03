@@ -43,6 +43,11 @@ const router = createRouter({
       component: () => import('@/pages/404.vue')
     },
     {
+      path: '/3rd-party-libs',
+      name: '3rd-party-libs',
+      component: () => import('@/pages/3rd-party-libs.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'layout',
       // component: Layout,

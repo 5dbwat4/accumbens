@@ -3,7 +3,7 @@ import renderMathInElement from "katex/contrib/auto-render";
 
 export const handleKatexRender = () => {
   if (!document.getElementById("markdown-body")) return;
-
+  // return
   document.getElementById("markdown-body").querySelectorAll(".language-math").forEach((el) => {
     const math = el.innerText;
     const display = el.classList.contains("display-math");
