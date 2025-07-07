@@ -1,4 +1,5 @@
 <template>
+
   <print-notin class="print-only" />
   <BreadCrumbx
     :breadcrumb="mdcfg.breadcrumb"
@@ -11,20 +12,22 @@
   <!-- <aside class="side-nav">
     <component :is="_SideNavComp" />
   </aside> -->
-  <!-- <Onthispage :toc="toc" /> -->
+  <Onthispage :PostRenderHook="postRenderHooky.on" v-if="content_loading_stage>=3"/>
   <main
     class="markdown-body"
     id="markdown-body"
     v-if="content_loading_stage >= 1"
   >
+    <n-back-top  />
     <LoadingSkeletons
       v-if="content_loading_stage == 2 || content_loading_stage == 1"
     />
     <!-- <p>Loading stage: {{ (["Before all","Metadata calculated","Receiving content","Rendering","Fulfilled"])[content_loading_stage] }}</p> -->
+      <n-image-group>
     <render
       :components="defaultComponents"
       v-if="content_loading_stage == 3 || content_loading_stage == 4"
-    />
+    /></n-image-group>
     <dirList
       v-if="content_loading_stage == 3 && mdcfg.is_dir"
       :entries="mdcfg.entries"
@@ -74,6 +77,9 @@ import ElementAHandler from "./components/md-comp/element-a-handler.vue";
 import printNotin from "./components/print-notin.vue";
 import IndexAlternativeSwitch from "./components/index-alternative-switch.vue";
 import { restoreReadingPosition,stopReadingProgressTracking } from "./utils/bookmark";
+import Onthispage from "./components/onthispage.vue";
+import { createHook } from "./utils/hookCtx";
+
 // import infoRoot from "@notebook-entry/accumbens.config.json"
 
 const route = useRoute();
@@ -111,6 +117,8 @@ const defaultComponents = {
   "n-image": NImage,
 };
 
+const postRenderHooky = createHook();
+
 // const _SideNavComp = shallowRef(h("div"));
 
 const render = shallowRef(null);
@@ -118,21 +126,10 @@ const render = shallowRef(null);
 if (!mdcfg) {
   content_loading_stage.value = -404;
 } else {
-  if (mdcfg.is_dir) {
+  if (mdcfg.is_dir && !mdcfg.index) {// Render directory listing
     content_loading_stage.value = 3;
-    if (mdcfg.index) {
-      mdcfg.entry?.then(async (entry) => {
-        // console.log(entry);
-        render.value = entry.default;
-        content_loading_stage.value = 3;
-        await nextTick();
-        content_loading_stage.value = 4;
-        handleKatexRender();
-      });
-    } else {
-      if (route.path.endsWith("/")) {
-        router.replace(route.path.slice(0, -1));
-      }
+    if (route.path.endsWith("/")) {
+      router.replace(route.path.slice(0, -1));
     }
   } else {
     content_loading_stage.value = 2;
@@ -143,6 +140,7 @@ if (!mdcfg) {
       await nextTick();
       content_loading_stage.value = 4;
       handleKatexRender();
+      postRenderHooky.run();
       await restoreReadingPosition();
     });
   }
@@ -155,7 +153,6 @@ router.beforeEach((to, from, next) => {
   // console.log("beforeEach", to, from);
   if (to.path !== from.path) {
     content_loading_stage.value = 0;
-    mdcfg.entry = null;
     render.value = null;
     stopReadingProgressTracking();
   }
@@ -221,4 +218,4 @@ router.beforeEach((to, from, next) => {
 </style>
 
 <style src="@/assets/markdown-overwrite.css"></style>
-<style src="@/assets/md-custom-toc.css"></style>
+<!-- <style src="@/assets/md-custom-toc.css"></style> -->

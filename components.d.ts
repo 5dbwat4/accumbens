@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     3rdPartyLibCard: typeof import('./src/components/3rd-party-lib-card.vue')['default']
+    404: typeof import('./src/components/404.vue')['default']
     AccHeading: typeof import('./src/components/md-comp/accHeading.vue')['default']
     AIGCWarning: typeof import('./src/components/md-comp/AIGC-Warning.vue')['default']
     AsciinemaWrapper: typeof import('./src/components/md-comp/AsciinemaWrapper.vue')['default']
@@ -39,6 +40,7 @@ declare module 'vue' {
     NH1: typeof import('naive-ui')['NH1']
     NH3: typeof import('naive-ui')['NH3']
     NIcon: typeof import('naive-ui')['NIcon']
+    NImageGroup: typeof import('naive-ui')['NImageGroup']
     NLi: typeof import('naive-ui')['NLi']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NNotificationProvider: typeof import('naive-ui')['NNotificationProvider']

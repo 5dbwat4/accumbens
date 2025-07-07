@@ -242,6 +242,9 @@ importers:
       sweetalert:
         specifier: ^2.1.2
         version: 2.1.2
+      three.js:
+        specifier: ^0.77.1
+        version: 0.77.1
       to-vfile:
         specifier: ^8.0.0
         version: 8.0.0
@@ -2669,6 +2672,12 @@ packages:
 
   text-segmentation@1.0.3:
     resolution: {integrity: sha512-iOiPUo/BGnZ6+54OsWxZidGCsdU8YbE4PSpdPinp7DeMtUJNJBoJ/ouUSTJjHkh1KntHaltHl/gDs2FC4i5+Nw==}
+
+  three.js@0.77.1:
+    resolution: {integrity: sha512-lVMYlBXhhHlZtsF+cQdev6WCm2fSWs3I+A6Z63j6TBmkVXOYgdo9AUCRemfsw5mllqWx23VubJ5Qt8/uWKQpJA==}
+
+  three@0.77.0:
+    resolution: {integrity: sha512-YWEp8ahs2l+6fAFVbanLVQoSBwVq5jDct3nZdBSHHXb5I/w5oy/LCMAzIOAguKWclRqcjR4W1BeP5QBnftGbpA==}
 
   tinyglobby@0.2.14:
     resolution: {integrity: sha512-tX5e7OM1HnYr2+a2C/4V0htOcSQcoSTH9KgJnVvNm5zm/cyEWKJ7j7YutsH9CxMdtOkkLFy2AHrMci9IM8IPZQ==}
@@ -5964,6 +5973,12 @@ snapshots:
   text-segmentation@1.0.3:
     dependencies:
       utrie: 1.0.2
+
+  three.js@0.77.1:
+    dependencies:
+      three: 0.77.0
+
+  three@0.77.0: {}
 
   tinyglobby@0.2.14:
     dependencies:

@@ -14,7 +14,9 @@
       </div>
     </div>
     
-    <div class="detail-content" :class="{ 'collapsed': !isExpanded }" ref="content">
+    <div class="detail-content" :class="{ 'collapsed': !isExpanded }" :style="{
+      maxHeight: $props
+    }" ref="content">
       <div class="content-inner">
         <slot></slot>
       </div>
@@ -29,6 +31,7 @@ import { IconCodeRounded, IconInfoOutlineRounded, IconBookOutlineRounded,
  } from '@iconify-prerendered/vue-material-symbols-light'
  import {IconTask} from '@iconify-prerendered/vue-material-symbols'
  import IconFire from "@/assets/hugeicons~fire.svg";
+ import IconPrompt from "@/assets/icons/fluent~prompt-16-filled.vue";
 import { useAttrs } from '@vue/runtime-core';
 
 const CONFIG = {
@@ -59,6 +62,10 @@ const CONFIG = {
     "task":{
       icon:IconTask,
       primaryColor: '#200eb4'
+    },
+    "prompt":{
+      icon: IconPrompt,
+      primaryColor: '#36a11f'
     }
 
 }
@@ -68,10 +75,16 @@ const props = defineProps({
     type: String,
     default: ''
   },
+
+
   collapsed: {
     type: Boolean,
     default: false
   },
+
+
+
+
   type: {
     type: String,
     default: null
@@ -184,7 +197,6 @@ const {icon, primaryColor, secondaryColor} = (props.type && CONFIG[props.type])?
 }
 
 .detail-content {
-  max-height: 100vh;
   overflow: auto;
   transition: max-height 0.3s ease, padding 0.3s ease;
   font-size: 85%;
@@ -199,6 +211,10 @@ const {icon, primaryColor, secondaryColor} = (props.type && CONFIG[props.type])?
   padding: 10px 20px;
   line-height: 1.6;
   color: #333;
+}
+
+.content-inner :last-child {
+  margin-bottom: 0;
 }
 
 .content-inner p {

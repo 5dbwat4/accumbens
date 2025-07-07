@@ -87,6 +87,7 @@
     "section-matter": "^1.0.0",
     "strip-bom-string": "^1.0.0",
     "sweetalert": "^2.1.2",
+    "three.js": "^0.77.1",
     "to-vfile": "^8.0.0",
     "typescript": "^5.7.3",
     "unified": "^11.0.5",
