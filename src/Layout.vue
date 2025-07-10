@@ -29,7 +29,7 @@
       v-if="content_loading_stage == 3 || content_loading_stage == 4"
     /></n-image-group>
     <dirList
-      v-if="content_loading_stage == 3 && mdcfg.is_dir"
+      v-if="content_loading_stage == 5"
       :entries="mdcfg.entries"
       :subcategories="mdcfg.subcategories"
     />
@@ -72,7 +72,8 @@ import { date_format } from "./utils/date-format";
 import { NTable } from "naive-ui";
 import AccHeading from "./components/md-comp/accHeading.vue";
 import CodeBlocks from "./components/md-comp/CodeBlocks.vue";
-import dirList from "./components/dir-content-main.vue";
+// import dirList from "./components/dir-content-main.vue";
+const dirList = defineAsyncComponent(() => import("./components/dir-content-main.vue"));
 import ElementAHandler from "./components/md-comp/element-a-handler.vue";
 import printNotin from "./components/print-notin.vue";
 import IndexAlternativeSwitch from "./components/index-alternative-switch.vue";
@@ -96,6 +97,7 @@ const content_loading_stage = ref(
 1: config loaded
 3: entry loading ok
 4: render ok
+5: we are going to render dirList component
 -404: 404 page
 */
 );
@@ -126,10 +128,13 @@ const render = shallowRef(null);
 if (!mdcfg) {
   content_loading_stage.value = -404;
 } else {
-  if (mdcfg.is_dir && !mdcfg.index) {// Render directory listing
+  const shallRenderDirlist = mdcfg.is_dir && !route.path.endsWith("/")
+  if (shallRenderDirlist) {// Render directory listing
     content_loading_stage.value = 3;
     if (route.path.endsWith("/")) {
       router.replace(route.path.slice(0, -1));
+    }else{
+      content_loading_stage.value = 5;
     }
   } else {
     content_loading_stage.value = 2;
@@ -152,9 +157,9 @@ onMounted(() => {
 router.beforeEach((to, from, next) => {
   // console.log("beforeEach", to, from);
   if (to.path !== from.path) {
+    stopReadingProgressTracking();
     content_loading_stage.value = 0;
     render.value = null;
-    stopReadingProgressTracking();
   }
   next();
 });

@@ -38,18 +38,16 @@ const copyToolTipX = ref(true);
 const onHover = ref(false);
 
 const prop = defineProps({
-  code: String,
   language: String,
 });
 await injectLanguage(hljs,prop.language)
 
 const codeData = ref(useSlots().default()?.[0].children)
 
-
-// console.log( useSlots().default()?.[0].children)
+// console.log( useSlots().default()?.[0].children,prop.code,prop.language)
 
 const copyToClipboard = () => {
-  copy(prop.code, {
+  copy(codeData.value, {
     message: "Press #{key} to copy",
   });
   copyToolTipX.value = false;

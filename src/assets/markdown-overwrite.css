@@ -597,7 +597,7 @@ h6:is(:hover,:target)>.header-anchor{
 
 
 .markdown-body blockquote {
-  margin: 0;
+  margin-left: 0;
   padding: 0 1em;
   color: var(--fgColor-muted);
   border-left: .25em solid var(--borderColor-default);

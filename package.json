@@ -53,6 +53,7 @@
     "html2pdf.js": "^0.10.2",
     "javascript-time-ago": "^2.5.11",
     "jquery": "^3.7.1",
+    "js-confuser": "^2.0.0",
     "js-yaml": "^4.1.0",
     "jsdom": "^26.1.0",
     "katex": "^0.16.19",

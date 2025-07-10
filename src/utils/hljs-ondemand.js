@@ -12,6 +12,7 @@ const demandMap = {
 'arduino': ()=>import('highlight.js/lib/languages/arduino'),
 'armasm': ()=>import('highlight.js/lib/languages/armasm'),
 'xml': ()=>import('highlight.js/lib/languages/xml'),
+'html': ()=>import('highlight.js/lib/languages/xml'),
 'asciidoc': ()=>import('highlight.js/lib/languages/asciidoc'),
 'aspectj': ()=>import('highlight.js/lib/languages/aspectj'),
 'autohotkey': ()=>import('highlight.js/lib/languages/autohotkey'),
@@ -195,7 +196,10 @@ const demandMap = {
 'xquery': ()=>import('highlight.js/lib/languages/xquery'),
 'zephir': ()=>import('highlight.js/lib/languages/zephir'),
 }
+console.log(`Demanding language: ${language}`)
 if(language in demandMap){
+    console.log(`Demanding language: ${language} found.`);
+    
     hljs.registerLanguage(language,(await (demandMap[language]())).default)
 }
     

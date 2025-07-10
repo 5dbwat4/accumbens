@@ -1,5 +1,5 @@
 <template>
-  <div id="table-of-contents" class="table-of-contents" >
+  <div id="table-of-contents" class="table-of-contents" v-if="toc.length>5">
     <p class="toc-hint">On this page:</p>
     <ul >
       <li v-for="item in toc" :style="{'padding-top': item.depth==1?'0.2em':'0'}">
