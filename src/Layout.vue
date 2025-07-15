@@ -128,14 +128,10 @@ const render = shallowRef(null);
 if (!mdcfg) {
   content_loading_stage.value = -404;
 } else {
-  const shallRenderDirlist = mdcfg.is_dir && !route.path.endsWith("/")
-  if (shallRenderDirlist) {// Render directory listing
-    content_loading_stage.value = 3;
-    if (route.path.endsWith("/")) {
-      router.replace(route.path.slice(0, -1));
-    }else{
-      content_loading_stage.value = 5;
-    }
+  if(mdcfg.is_dir && route.path.endsWith("/") && !mdcfg.index) {
+    router.replace(route.path.slice(0, -1));
+  }else if(mdcfg.is_dir && !route.path.endsWith("/")){
+    content_loading_stage.value = 5;
   } else {
     content_loading_stage.value = 2;
     mdcfg.entry?.then(async (entry) => {

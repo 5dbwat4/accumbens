@@ -15,6 +15,7 @@ import Pages from 'vite-plugin-pages';
 import remarkToolchain from './utils/remark-toolchain'
 
 import encryptPlugin from './utils/rollup-plugin-encrypt'
+import detailPlugin from './utils/rollup-plugin-bundleDetail'
 import list3rdpartylist from './utils/unplugin-list-3rd-party-libs'
 
 
@@ -65,6 +66,7 @@ export default defineConfig({
     //   {path: 'CS/CTF101/lab0.mdx',key:"opt"      },
     //   {path: 'CS/CTF101/index.md',key:"opt"      },
     // ]),
+    // detailPlugin(),
     list3rdpartylist(),
 
 

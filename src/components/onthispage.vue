@@ -74,6 +74,7 @@ props.PostRenderHook(()=>{
     padding-bottom: 0.5em;
     border-radius: .3em;
     font-family: Cardo;
+        margin-bottom: 16px;
 }
 
 .table-of-contents .toc-hint{
