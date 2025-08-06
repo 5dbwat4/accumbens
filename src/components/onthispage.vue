@@ -140,7 +140,7 @@ props.PostRenderHook(()=>{
   overflow-y: auto;
 }
 
-@print {
+@media print {
   .table-of-contents {
   max-height: unset;
 }
