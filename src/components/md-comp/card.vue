@@ -7,7 +7,7 @@
         </div>
         <h3 class="title">{{ title }}</h3>
       </div>
-      <div class="collapse-button" :class="{ 'collapsed': !isExpanded }">
+      <div class="collapse-button" :class="{ 'collapsed': !isExpanded }" v-if="!$props.noExpansion">
         <svg class="chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -82,8 +82,10 @@ const props = defineProps({
     default: false
   },
 
-
-
+  noExpansion: {
+    type: Boolean,
+    default: false
+  },
 
   type: {
     type: String,
@@ -103,11 +105,13 @@ const props = defineProps({
   }
 })
 
+console.log(props)
 
-const isExpanded = ref(!props.collapsed)
+const isExpanded = ref(!props.collapsed && !props.noExpansion)
 const content = ref(null)
 
 const toggleCollapse = () => {
+  if(!props.noExpansion)
   isExpanded.value = !isExpanded.value
 }
 

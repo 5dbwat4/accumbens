@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src-split/*"]
+      "@/*": ["./src/*"],
+      "@notes/*": ["./noting/*"],
+      "@md-components/*": ["./src/components/md-comp/*"]
     }
   },
   "exclude": ["node_modules", "dist"]
