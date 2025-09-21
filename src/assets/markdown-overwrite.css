@@ -355,8 +355,31 @@ h6:is(:hover,:target)>.header-anchor{
     padding: 0 var(--base-size-16);
     margin-bottom: var(--base-size-16);
   }
+
+  .markdown-body * :focus-visible  {
+
+    outline: unset;
+  }
+
   
-  /* .markdown-body table th {
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  font-variant: tabular-nums;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+  
+  .markdown-body table th {
     font-weight: var(--base-text-weight-semibold, 600);
   }
   
@@ -371,17 +394,20 @@ h6:is(:hover,:target)>.header-anchor{
   }
   
   .markdown-body table tr {
-    background-color: var(--bgColor-default);
+    background-color: transparent ;
     border-top: 1px solid var(--borderColor-muted);
   }
   
   .markdown-body table tr:nth-child(2n) {
+    background-color: transparent;
+  }
+  .markdown-body table tr :hover {
     background-color: var(--bgColor-muted);
   }
   
   .markdown-body table img {
     background-color: transparent;
-  } */
+  }
   
   .markdown-body img[align=right] {
     padding-left: 20px;

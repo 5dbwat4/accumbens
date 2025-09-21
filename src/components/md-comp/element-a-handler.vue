@@ -3,7 +3,7 @@
     <slot></slot>
     <n-icon :component="IconExternalLink"></n-icon>
 </a>
-<a v-else @click="$router.push($props.href)" class="acc-a">
+<a v-else @keyup.enter="$router.push($props.href)" @click="$router.push($props.href)" class="acc-a">
     <slot></slot>
 </a>
 </template>
