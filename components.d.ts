@@ -51,6 +51,8 @@ declare module 'vue' {
     NSkeleton: typeof import('naive-ui')['NSkeleton']
     NSpace: typeof import('naive-ui')['NSpace']
     NSwitch: typeof import('naive-ui')['NSwitch']
+    NTimeline: typeof import('naive-ui')['NTimeline']
+    NTimelineItem: typeof import('naive-ui')['NTimelineItem']
     NUl: typeof import('naive-ui')['NUl']
     Onthispage: typeof import('./src/components/onthispage.vue')['default']
     PasswordContainer: typeof import('./src/components/md-comp/passwordContainer.vue')['default']

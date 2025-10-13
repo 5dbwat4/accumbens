@@ -2,7 +2,7 @@
 
 </template>
 <script setup>
-import three from "three.js"
+// import three from "three.js"
 
 // const 
 </script>

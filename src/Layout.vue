@@ -79,7 +79,10 @@ const dirList = defineAsyncComponent(() =>
   import("./components/dir-content-main.vue")
 );
 import ElementAHandler from "./components/md-comp/element-a-handler.vue";
-import printNotin from "./components/print-notin.vue";
+// import printNotin from "./components/print-notin.vue";
+const printNotin = defineAsyncComponent(() =>
+  import("./components/print-notin.vue")
+);
 import IndexAlternativeSwitch from "./components/index-alternative-switch.vue";
 import {
   restoreReadingPosition,
@@ -100,7 +103,7 @@ const router = useRouter();
 const path = ref(route.path);
 
 const available = ref(true);
-const notFoundPage = defineAsyncComponent(() => import("@/pages/404.vue"));
+const notFoundPage = defineAsyncComponent(() => import("@/components/404.vue"));
 
 const content_loading_stage = ref(
   0 /**

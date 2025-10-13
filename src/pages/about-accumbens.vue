@@ -3,7 +3,7 @@
     <span class="heading-overwrite">About Accumbens</span>
   </n-h1>
 
-  <n-p>Note this page has been deprecated.</n-p>
+  <!-- <n-p>Note this page has been deprecated.</n-p> -->
 
   <n-p>Accumbens is the framework behind my notebook.</n-p>
 
@@ -13,6 +13,39 @@
   </div>
 
   <n-p>
+    I began working on this framework in early 2025, inspired by Xecades' Alpha. And I kept improving it while taking notes for my courses.
+  </n-p>
+
+  <!-- <n-p><a href="https://github.com/5dbwat4/accumbens" target="_blank" style="margin: auto;"><img style="max-width: 400px;margin:auto" src="https://opengraph.githubassets.com/token/5dbwat4/accumbens"/></a></n-p> -->
+<!-- 
+  <n-timeline>
+    <n-timeline-item
+      type="success"
+      title="The very first version"
+      content="success content"
+      time="2018-04-03 20:46"
+    />
+    <n-timeline-item
+      type="error"
+      content="Error content"
+      time="2018-04-03 20:46"
+    />
+    <n-timeline-item
+      type="warning"
+      title="Warning"
+      content="warning content"
+      time="2018-04-03 20:46"
+    />
+    <n-timeline-item
+      type="info"
+      title="Info"
+      content="info content"
+      time="2018-04-03 20:46"
+      line-type="dashed"
+    />
+    <n-timeline-item content="Oops" />
+  </n-timeline> -->
+  <!-- <n-p>
     As a <span class="italic">notebook framework</span>, its behavior is
     designed to meet the needs of readers (who frequently access the notebook,
     and the same note will be accessed multiple times). It:
@@ -36,9 +69,12 @@
 
   <n-p>
     <n-button text @click="$router.push('/3rd-party-libs')">Click here</n-button> to view the list of all 3rd-party libraries used in the framework.
-  </n-p>
+  </n-p> -->
 </template>
-<script setup></script>
+<script setup>
+import { WindowsFilled } from '@vicons/antd';
+
+</script>
 <style scoped>
 .showcard {
   font-family: Georgia, "Times New Roman", Times, serif;
