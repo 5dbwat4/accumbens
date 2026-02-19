@@ -1,56 +1,86 @@
-import infoRoot from "@notebook-entry/accumbens.config.json"
+import {
+    hydrateCategoryNode,
+    loadFullNavTree,
+    loadRootConfig,
+} from "@notebook-entry/accumbens.config.js"
 import entryMap from "@notebook-entry/accumbens.entries.js"
 
-const getEntry = async (path) => {
-    console.log(path);
-    
+let rootConfigPromise = null
 
+const getRootConfig = async () => {
+    if (!rootConfigPromise) {
+        rootConfigPromise = loadRootConfig()
+    }
+    return rootConfigPromise
+}
+
+const withBreadcrumb = (target, breadcrumb) => {
+    if (!target) return null
+    return {
+        ...target,
+        breadcrumb,
+    }
+}
+
+const loadCategory = async (category) => {
+    if (!category) return category
+    if (category.chunk) {
+        return await hydrateCategoryNode(category)
+    }
+    return category
+}
+
+const getEntry = async (path) => {
     let flag_path_type = []
     let found = false
-    const move = (category,breadcrumb)=>{
+    const move = async (category, breadcrumb) => {
         if(found) return;
-        // console.log(category,breadcrumb);
-        
-        breadcrumb.push({name:category.name,path:category.path})
+        const categoryLoaded = await loadCategory(category)
+
+        breadcrumb.push({name: categoryLoaded.name, path: categoryLoaded.path})
         let certainPath;
-        // console.log(category.path);
-        
-        if(certainPath = category.path.find(v=>path.startsWith(v))){
+
+        if(typeof categoryLoaded.path === 'string' && path.startsWith(categoryLoaded.path)){
+            certainPath = categoryLoaded.path
             if(path == certainPath){
                 flag_path_type.push('dir');
-                found = category;
-                found.breadcrumb = breadcrumb
+                found = withBreadcrumb(categoryLoaded, breadcrumb)
                 return ;
             }
             if(path == certainPath+'/'){
-                if(category.index){
+                if(categoryLoaded.index){
                     flag_path_type.push('index');
-                found = category.entries.find(x=>x.unikey == category.index);
+                found = withBreadcrumb(categoryLoaded.entries.find(x=>x.unikey == categoryLoaded.index), breadcrumb)
                 }else{
                     flag_path_type.push('dir');
-                    found = category;
+                    found = withBreadcrumb(categoryLoaded, breadcrumb)
                 }
-
-                found.breadcrumb = breadcrumb
                 return ;
 
             }
-            if(category.entries.find(x=>certainPath+'/'+x.path == path)){
-                found = category.entries.find(x=>certainPath+'/'+x.path == path)
-                found.breadcrumb = breadcrumb
+            if(categoryLoaded.entries?.find(x=>certainPath+'/'+x.path == path)){
+                found = withBreadcrumb(categoryLoaded.entries.find(x=>certainPath+'/'+x.path == path), breadcrumb)
                 return ;
             }
         }
-        if(!found && !category.leaf){
-            category.subcategories.forEach(v=>{move(v,[...breadcrumb])})
+        if(!found && !categoryLoaded.leaf){
+            for (const subcategory of (categoryLoaded.subcategories || [])) {
+                await move(subcategory, [...breadcrumb])
+                if (found) break
+            }
             return;
         }
     }
 
+    const infoRoot = await getRootConfig()
+
     if(infoRoot.entries?.find(x=>x.path == path)){
-        found = entryMap[path]
+        found = withBreadcrumb(infoRoot.entries.find(x=>x.path == path), [])
     }else{
-        infoRoot.subcategories.map(v=>move(v,[]))
+        for (const category of (infoRoot.subcategories || [])) {
+            await move(category,[])
+            if (found) break
+        }
     }
     if(!found){
         return null;
@@ -62,8 +92,15 @@ const getEntry = async (path) => {
 
 }
 
+const getNavInfo = async ({ full = false } = {}) => {
+    if (full) {
+        return await loadFullNavTree()
+    }
+    return await getRootConfig()
+}
+
 
 export {
     getEntry,
-    infoRoot as navInfo
+    getNavInfo
 }

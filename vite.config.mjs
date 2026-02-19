@@ -17,6 +17,7 @@ import remarkToolchain from './utils/remark-toolchain'
 import encryptPlugin from './utils/rollup-plugin-encrypt'
 import detailPlugin from './utils/rollup-plugin-bundleDetail'
 import list3rdpartylist from './utils/unplugin-list-3rd-party-libs'
+import compileDocTreePlugin from './utils/vite-plugin-compile-doc-tree.mjs'
 
 
 function getModuleNameFromPath(path) {
@@ -48,6 +49,7 @@ function getPageModuleNameFromPath(path) {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    compileDocTreePlugin(),
     VueRouter(),
     Pages({
       dirs: 'src/pages',  // 需要生成路由的文件目录

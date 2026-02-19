@@ -4,7 +4,8 @@
     <n-code
       :code="codeData"
       :language="$props.language"
-      show-line-numbers
+      :show-line-numbers="!$props.breakLines"
+      :word-wrap="$props.breakLines"
       class="code-block"
     />
     </n-config-provider>
@@ -38,16 +39,22 @@ const copyToolTipX = ref(true);
 const onHover = ref(false);
 
 const prop = defineProps({
+  code: String,
   language: String,
+  breakLines: {
+    type: Boolean,
+    default: false,
+  },
 });
 await injectLanguage(hljs,prop.language)
 
 const codeData = ref(useSlots().default()?.[0].children)
 
-// console.log( useSlots().default()?.[0].children,prop.code,prop.language)
+
+// console.log( useSlots().default()?.[0].children)
 
 const copyToClipboard = () => {
-  copy(codeData.value, {
+  copy(prop.code, {
     message: "Press #{key} to copy",
   });
   copyToolTipX.value = false;
@@ -64,30 +71,51 @@ const copyToClipboard = () => {
 .code-block {
   position: relative;
 overflow-x: auto;
- /* width */
 
  background-color: #0000;
- /* border-radius:; */
 
 }
 
 .code-block::-webkit-scrollbar {
 height: 5px;
+background-color: #0000;
+transition: background-color 0.3s ease;
+}
+
+.code-block::-webkit-scrollbar-track {
+background-color: #0000;
+transition: background-color 0.3s ease;
+}
+
+.code-block::-webkit-scrollbar-thumb {
+background:#0000;
+border-radius: 2px;
+transition: background-color 0.3s ease;
+}
+
+.code-block::-webkit-scrollbar-thumb:hover {
+background-color: #0000;
+}
+
+
+.code-block:hover::-webkit-scrollbar{
+ 
+height: 5px;
 }
 
 /* Track */
-.code-block::-webkit-scrollbar-track {
-background: #f1f1f1;
+.code-block:hover::-webkit-scrollbar-track {
+background-color: #f1f1f1;
 }
 
 /* Handle */
-.code-block::-webkit-scrollbar-thumb {
-background: #bbb;
+.code-block:hover::-webkit-scrollbar-thumb {
+background-color: #bbb;
 border-radius: 2px;
 }
 
 /* Handle on hover */
-.code-block::-webkit-scrollbar-thumb:hover {
-background: #555;
+.code-block:hover::-webkit-scrollbar-thumb:hover {
+background-color: #555;
 }
 </style>

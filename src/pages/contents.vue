@@ -27,7 +27,7 @@
   </div>
 </template>
 <script setup>
-import { navInfo } from "@/utils/configUtils.js";
+import { getNavInfo } from "@/utils/configUtils.js";
 import { ref } from "vue";
 import { h } from "vue";
 import { NCollapse, NCollapseItem } from "naive-ui";
@@ -37,6 +37,7 @@ import dirList from "@/components/dir-content-main.vue";
 import flip from "@/assets/fluent~card-ui-portrait-flip-16-regular.vue";
 
 const navView = ref(true);
+const navInfo = await getNavInfo({ full: true });
 
 // const nav = await getNavConfig();
 // console.log(nav);
