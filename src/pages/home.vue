@@ -10,8 +10,10 @@
     <n-button
       @click="$router.push('/contents')"
       round
-      :render-icon="IconList3Twotone"
     >
+      <template #icon>
+        <n-icon :component="IconList3Twotone"></n-icon>
+        </template>
       看看这个人到底写了什么
     </n-button>
     <n-p
@@ -26,15 +28,19 @@
     <n-button
       text
       @click="do_confetti()"
-      :render-icon="IconConfettiLineDuotone"
     >
+      <template #icon>
+        <n-icon :component="IconConfettiLineDuotone"></n-icon>
+        </template>
       听说主页要有一个能放礼花的按钮
     </n-button>
     <n-button
       text
       @click="$router.push('/charts')"
-      :render-icon="IconChartLineDuotone"
     >
+      <template #icon>
+        <n-icon :component="IconChartLineDuotone"></n-icon>
+        </template>
       看看数值
     </n-button>
     <n-divider />
@@ -51,11 +57,14 @@
   </div>
 </template>
 <script setup>
-import { IconList3Twotone } from "@iconify-prerendered/vue-line-md";
-import {
-  IconConfettiLineDuotone,
-  IconChartLineDuotone,
-} from "@iconify-prerendered/vue-solar";
+// import { IconList3Twotone } from "@iconify-prerendered/vue-line-md";
+// import {
+//   IconConfettiLineDuotone,
+//   IconChartLineDuotone,
+// } from "@iconify-prerendered/vue-solar";
+import IconList3Twotone from '~iconify/line-md/list-3-twotone';
+import IconConfettiLineDuotone from '~iconify/solar/confetti-line-duotone';
+import IconChartLineDuotone from '~iconify/solar/chart-line-duotone';
 import confetti from "canvas-confetti";
 // import { navInfo } from "@/utils/configUtils.js";
 // import dirList from "@/components/dir-content-main.vue";

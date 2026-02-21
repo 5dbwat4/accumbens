@@ -26,12 +26,20 @@
 
 <script setup>
 import { ref, onMounted, h } from 'vue'
-import { IconCodeRounded, IconInfoOutlineRounded, IconBookOutlineRounded,
-    IconWarningRounded, IconErrorRounded
- } from '@iconify-prerendered/vue-material-symbols-light'
- import {IconTask} from '@iconify-prerendered/vue-material-symbols'
- import IconFire from "@/assets/hugeicons~fire.svg";
- import IconPrompt from "@/assets/icons/fluent~prompt-16-filled.vue";
+// import { IconCodeRounded, IconInfoOutlineRounded, IconBookOutlineRounded,
+//     IconWarningRounded, IconErrorRounded
+//  } from '@iconify-prerendered/vue-material-symbols-light'
+//  import {IconTask} from '@iconify-prerendered/vue-material-symbols'
+//  import IconFire from "@/assets/hugeicons~fire.svg";
+//  import IconPrompt from "@/assets/icons/fluent~prompt-16-filled.vue";
+import IconCodeRounded from '~iconify/material-symbols-light/code-rounded';
+import IconInfoOutlineRounded from '~iconify/material-symbols-light/info-outline-rounded';
+import IconBookOutlineRounded from '~iconify/material-symbols-light/book-outline-rounded';
+import IconWarningRounded from '~iconify/material-symbols-light/warning-rounded';
+import IconErrorRounded from '~iconify/material-symbols-light/error-rounded';
+import IconTask from '~iconify/material-symbols/task';
+import IconFire from '~iconify/hugeicons/fire';
+import IconPrompt from '~iconify/fluent/prompt-16-filled';
 import { useAttrs } from '@vue/runtime-core';
 
 const CONFIG = {

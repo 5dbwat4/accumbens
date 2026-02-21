@@ -44,7 +44,7 @@ function appendUrlQuery(url) {
 
 function imageToJsx(importName, alt, title) {
   const titleAttr = title ? ` title=${JSON.stringify(title)}` : ''
-  return `<img src={${importName}} alt=${JSON.stringify(alt || '')}${titleAttr} />`
+  return `<img src={${importName}} alt=${JSON.stringify(alt || '')}${titleAttr} loading="lazy"/>`
 }
 
 function getImportInsertOffset(tree) {

@@ -4,13 +4,13 @@
  <n-button-group vertical size="large" style="width:100%">
       <n-button style="justify-content: flex-start ;" v-for="cat in finalShownThings.filter(v => v.type === 'subcategory')" :key="cat.path" @click="$router.push('/'+cat.path+'/')">
         <template #icon>
-          <n-icon color="rgb(194,195,184)"><IconTextBoxMultipleTwotone/></n-icon>
+          <n-icon color="rgb(194,195,184)"><PhFilesDuotone/></n-icon>
         </template>
        {{ cat.name }}
       </n-button>
       <n-button style="justify-content: flex-start ;" v-for="entry in finalShownThings.filter(v => v.type === 'entry')" :key="entry.unikey" @click="$router.push($route.path+'/'+entry.path)" >
         <template #icon>
-          <n-icon color="rgb(194,195,184)"><IconFileDocumentFilled/></n-icon>
+          <n-icon color="rgb(194,195,184)"><AkarIconsFile/></n-icon>
         </template>
        {{ entry.title||'(no title) /'+entry.path }}
       </n-button>
@@ -23,7 +23,9 @@
 </template>
 <script setup>
 import {computed} from "vue"
-import {IconTextBoxMultipleTwotone,IconFileDocumentFilled}from "@iconify-prerendered/vue-line-md"
+// import {IconTextBoxMultipleTwotone,IconFileDocumentFilled}from "@iconify-prerendered/vue-line-md"
+import AkarIconsFile from '~iconify/akar-icons/file';
+import PhFilesDuotone from '~iconify/ph/files-duotone';
 
 const props = defineProps({
     entries: Array,

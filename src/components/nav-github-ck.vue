@@ -16,7 +16,9 @@
     </n-popover>
 </template>
 <script setup>
-import { IconGithubLoop,IconStar } from "@iconify-prerendered/vue-line-md";
+// import { IconGithubLoop,IconStar } from "@iconify-prerendered/vue-line-md";
+import IconGithubLoop from '~iconify/line-md/github-twotone-loop';
+// import IconStar from '~iconify/line-md/star-twotone';
 
 // fetch('https://api.github.com/repos/5dbwat4/note')
 

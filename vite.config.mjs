@@ -11,6 +11,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver, NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import VueRouter from 'unplugin-vue-router/vite'
 import Pages from 'vite-plugin-pages';
+import Icons from '@iconify/unplugin/vite';
 
 import remarkToolchain from './utils/remark-toolchain'
 
@@ -60,6 +61,9 @@ export default defineConfig({
       exclude: ['**/components/*.vue']  // 排除在外的目录，即所有 components 目录下的 .vue 文件都不会生成路由
     }),
     remarkToolchain(),
+    Icons({
+      compiler: 'vue',
+    }),
     Vue(),
     VueJsx(),
     AutoImport({
