@@ -628,3 +628,9 @@ h6:is(:hover,:target)>.header-anchor{
   color: var(--fgColor-muted);
   border-left: .25em solid var(--borderColor-default);
 }
+
+.markdown-body em {
+  font-family: "Times New Roman",LXGW-Wenkai-Screen,serif;
+  font-synthesis: none;
+  font-style: italic;
+}

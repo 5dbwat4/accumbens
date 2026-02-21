@@ -34,7 +34,8 @@ import { NCollapse, NCollapseItem } from "naive-ui";
 import customCollapse from "@/components/custom-collapse.vue";
 import dirList from "@/components/dir-content-main.vue";
 
-import flip from "@/assets/fluent~card-ui-portrait-flip-16-regular.vue";
+// import flip from "@/assets/fluent~card-ui-portrait-flip-16-regular.vue";
+import flip from '~iconify/fluent/card-ui-portrait-flip-16-regular';
 
 const navView = ref(true);
 const navInfo = await getNavInfo({ full: true });
