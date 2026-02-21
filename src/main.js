@@ -10,7 +10,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-import "@notebook-entry"
+// import "@notebook-entry"
 
 const app = createApp(App)
 

@@ -16,7 +16,7 @@
       <!-- </n-breadcrumb-item> -->
       <template v-for="vo in $props.breadcrumb">
         <span>/</span>
-        <n-button quaternary round @click="$router.push('/'+vo.path[0]+'/')">
+        <n-button quaternary round @click="$router.push('/'+vo.path+'/')">
           <!-- <template #icon>
           <n-icon
             v-if="dataPreservedIcons[vo.key]"

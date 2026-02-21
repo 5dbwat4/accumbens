@@ -9,7 +9,6 @@ import remarkFlexibleToc from "remark-flexible-toc";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypePredefinedTags from "./rehype-handle-element-replacement"
-// import remarkEmbedImages from "./remark-better-embed-images"
 import remarkEmbedImages from "remark-embed-images";
 import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';

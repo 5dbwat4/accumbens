@@ -14,6 +14,9 @@ const isNoteStructureFile = (filePath) => {
 export default function compileDocTreePlugin() {
   let root = process.cwd();
   let lastRun = Promise.resolve();
+  let options = {
+    maxEntriesPerBucket: 128,
+  };
 
   const runCompile = async ({ reason, mode, logger, onAfter }) => {
     lastRun = lastRun.then(async () => {
@@ -22,7 +25,7 @@ export default function compileDocTreePlugin() {
         notingDir: "noting",
         mode,
         includeContentHash: mode === "production",
-        maxEntriesPerBucket: 256,
+        maxEntriesPerBucket: options.maxEntriesPerBucket,
       });
       logger?.info?.(
         `[accumbens] doc tree updated (${reason}) entries=${result.totalEntries}, configChunks=${result.configChunkCount}, entryChunks=${result.entryChunkCount}`,
@@ -40,6 +43,10 @@ export default function compileDocTreePlugin() {
     enforce: "pre",
     configResolved(config) {
       root = config.root;
+      options = {
+        ...options,
+        config
+      }
     },
     async buildStart() {
       const buildLogger = {

@@ -18,6 +18,7 @@ import encryptPlugin from './utils/rollup-plugin-encrypt'
 import detailPlugin from './utils/rollup-plugin-bundleDetail'
 import list3rdpartylist from './utils/unplugin-list-3rd-party-libs'
 import compileDocTreePlugin from './utils/vite-plugin-compile-doc-tree.mjs'
+import mdRelativeImageUrlPlugin from './utils/vite-plugin-md-relative-image-url.mjs'
 
 
 function getModuleNameFromPath(path) {
@@ -49,7 +50,10 @@ function getPageModuleNameFromPath(path) {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    compileDocTreePlugin(),
+    compileDocTreePlugin({
+      maxEntriesPerBucket: 128
+    }),
+    mdRelativeImageUrlPlugin(),
     VueRouter(),
     Pages({
       dirs: 'src/pages',  // 需要生成路由的文件目录
@@ -85,6 +89,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
+        assetFileNames: 'assets/[name].[hash][extname]',
         // manualChunks(id) {
 
         //   else if (id.includes('/noting/')) {

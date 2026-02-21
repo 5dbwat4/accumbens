@@ -2,7 +2,7 @@
     <div style="align-items: flex-start;display: flex;flex-direction: column;width:50%;min-width: 320px;margin: auto;padding-top: 50px;">
     <span style="font-family: Cardo;">Subcategories & Entries</span>
  <n-button-group vertical size="large" style="width:100%">
-      <n-button style="justify-content: flex-start ;" v-for="cat in finalShownThings.filter(v => v.type === 'subcategory')" :key="cat.path[0]" @click="$router.push('/'+cat.path[0]+'/')">
+      <n-button style="justify-content: flex-start ;" v-for="cat in finalShownThings.filter(v => v.type === 'subcategory')" :key="cat.path" @click="$router.push('/'+cat.path+'/')">
         <template #icon>
           <n-icon color="rgb(194,195,184)"><IconTextBoxMultipleTwotone/></n-icon>
         </template>
