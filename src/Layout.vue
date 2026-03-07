@@ -70,8 +70,8 @@ import { getEntry } from "./utils/configUtils";
 //   IconCalendarAddOn,
 //   IconEditCalendar,
 // } from "@iconify-prerendered/vue-material-symbols";
-import IconCalendarAddOn from '~iconify/material-symbols/calendar-add-on';
-import IconEditCalendar from '~iconify/material-symbols/edit-calendar-outline';
+import IconCalendarAddOn from '/~iconify/material-symbols/calendar-add-on';
+import IconEditCalendar from '/~iconify/material-symbols/edit-calendar-outline';
 import { date_format } from "./utils/date-format";
 import { NTable } from "naive-ui";
 import AccHeading from "./components/md-comp/accHeading.vue";

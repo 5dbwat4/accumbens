@@ -24,8 +24,8 @@
 <script setup>
 import {computed} from "vue"
 // import {IconTextBoxMultipleTwotone,IconFileDocumentFilled}from "@iconify-prerendered/vue-line-md"
-import AkarIconsFile from '~iconify/akar-icons/file';
-import PhFilesDuotone from '~iconify/ph/files-duotone';
+import AkarIconsFile from '/~iconify/akar-icons/file';
+import PhFilesDuotone from '/~iconify/ph/files-duotone';
 
 const props = defineProps({
     entries: Array,

@@ -44,8 +44,8 @@ import dataPreservedIcons from "@/router/dataPreservedIcons";
 //   IconChevronLeft,
 //   IconHomeTwotone,
 // } from "@iconify-prerendered/vue-line-md";
-import IconChevronLeft from '~iconify/line-md/chevron-left';
-import IconHomeTwotone from '~iconify/line-md/home-twotone';
+import IconChevronLeft from '/~iconify/line-md/chevron-left';
+import IconHomeTwotone from '/~iconify/line-md/home-twotone';
 // import { resolveBreadcrumbData } from "@/utils/markdown/resolveBreadcrumbData";
 // const route = useRoute();
 

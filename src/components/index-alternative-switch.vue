@@ -14,5 +14,5 @@
 </template>
 <script setup>
 // import flip from "@/assets/fluent~card-ui-portrait-flip-16-regular.vue"
-import flip from "~iconify/fluent/card-ui-portrait-flip-16-regular"
+import flip from "/~iconify/fluent/card-ui-portrait-flip-16-regular"
 </script>

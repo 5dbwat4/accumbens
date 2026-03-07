@@ -15,7 +15,7 @@ defineProps({
   },
 });
 // import {IconExternalLink} from '@iconify-prerendered/vue-line-md'
-import IconExternalLink from '~iconify/line-md/external-link';
+import IconExternalLink from '/~iconify/line-md/external-link';
 const isForeignLink = (href) => {
     // console.log('href', href);
     

@@ -30,7 +30,7 @@
 </template>
 <script setup>
 // import { IconClipboardPlusTwotone } from "@iconify-prerendered/vue-line-md";
-import IconClipboardPlusTwotone from '~iconify/line-md/clipboard-plus-twotone';
+import IconClipboardPlusTwotone from '/~iconify/line-md/clipboard-plus-twotone';
 import { ref, useAttrs, useSlots } from "vue";
 import copy from "copy-to-clipboard";
 import hljs from "highlight.js/lib/core"

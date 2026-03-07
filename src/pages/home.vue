@@ -62,9 +62,9 @@
 //   IconConfettiLineDuotone,
 //   IconChartLineDuotone,
 // } from "@iconify-prerendered/vue-solar";
-import IconList3Twotone from '~iconify/line-md/list-3-twotone';
-import IconConfettiLineDuotone from '~iconify/solar/confetti-line-duotone';
-import IconChartLineDuotone from '~iconify/solar/chart-line-duotone';
+import IconList3Twotone from '/~iconify/line-md/list-3-twotone';
+import IconConfettiLineDuotone from '/~iconify/solar/confetti-line-duotone';
+import IconChartLineDuotone from '/~iconify/solar/chart-line-duotone';
 import confetti from "canvas-confetti";
 // import { navInfo } from "@/utils/configUtils.js";
 // import dirList from "@/components/dir-content-main.vue";
