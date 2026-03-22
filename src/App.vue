@@ -2,8 +2,8 @@
   <n-message-provider>
     <n-notification-provider>
       <n-config-provider>
-      <!-- <n-config-provider :hljs="hljs"> -->
-      <!-- <n-config-provider :katex="katex" :hljs="hljs"> -->
+        <!-- <n-config-provider :hljs="hljs"> -->
+        <!-- <n-config-provider :katex="katex" :hljs="hljs"> -->
         <header class="header">
           <div class="header-block">
             <div class="header-left">
@@ -23,7 +23,7 @@
                 </template>
               </n-button>
               <SwitchLightDark />
-              
+
               <n-button quaternary circle @click="$router.push('/settings')">
                 <template #icon>
                   <n-icon :component="SettingsOutline"></n-icon>
@@ -39,7 +39,7 @@
             </div>
           </div>
         </header>
-         
+
         <div class="spacer"></div>
         <router-view v-slot="{ Component, route }">
           <transition name="fade" mode="out-in">
@@ -67,7 +67,9 @@
                   </p>
                 </div>
                 <div style="flex-basis: 35%">
-                  <p class="small-font">About me</p>
+                  <p class="small-font" @click="$router.push('/about-me')">
+                    About me
+                  </p>
                   <p
                     class="small-font"
                     @click="$router.push('/about-accumbens')"
@@ -94,10 +96,11 @@ import { onMounted, ref } from "vue";
 //   IconList3Twotone,
 //   IconGithubLoop,
 // } from "@iconify-prerendered/vue-line-md";
-import IconGithubLoop from '/~iconify/line-md/github-twotone-loop';
-import IconSearchTwotone from '/~iconify/line-md/search-twotone';
-import IconList3Twotone from '/~iconify/line-md/list-3-twotone';
+import IconGithubLoop from "/~iconify/line-md/github-twotone-loop";
+import IconSearchTwotone from "/~iconify/line-md/search-twotone";
+import IconList3Twotone from "/~iconify/line-md/list-3-twotone";
 import { SettingsOutline } from "@vicons/ionicons5";
+import state from "./utils/storage";
 // import katex from "katex";
 import "katex/dist/katex.css";
 import hljs from "highlight.js/lib/core";
@@ -147,7 +150,6 @@ onMounted(() => {
   font-weight: 400;
   line-height: 1.55;
 
-
   box-sizing: border-box;
   gap: 1.2rem;
   margin-left: auto !important;
@@ -176,7 +178,9 @@ onMounted(() => {
   margin-block-end: 0;
   margin-block-start: 0;
   color: #afafaf;
-  transition: color 0.3s, transform 0.3s ease-in-out;
+  transition:
+    color 0.3s,
+    transform 0.3s ease-in-out;
   position: fixed;
   /* opacity: 1; */
   /* backdrop-filter: blur(20px); */
@@ -333,25 +337,25 @@ onMounted(() => {
   margin: 0.4em;
 }
 
-
-@media print{
-  .header{
+@media print {
+  .header {
     display: block;
+    opacity: v-bind(state.hideHeaderWhenPrinting ? 0 : 1);
     position: inherit;
   }
-  .header-right{
+  .header-right {
     display: none;
   }
-  .spacer{
+  .spacer {
     display: none;
   }
-  .footer{
+  .footer {
     display: none;
   }
-  .main{
+  .main {
     margin-block-start: 0;
   }
-  .entry-container{
+  .entry-container {
     max-width: 100%;
   }
 }

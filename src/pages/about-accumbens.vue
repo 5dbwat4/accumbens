@@ -16,6 +16,10 @@
     I began working on this framework in early 2025, inspired by Xecades' Alpha. And I kept improving it while taking notes for my courses.
   </n-p>
 
+  <n-p>
+    <router-link to="/3rd-party-libs">Click here</router-link> to view the list of all 3rd-party libraries used in the framework.
+  </n-p> 
+
   <!-- <n-p><a href="https://github.com/5dbwat4/accumbens" target="_blank" style="margin: auto;"><img style="max-width: 400px;margin:auto" src="https://opengraph.githubassets.com/token/5dbwat4/accumbens"/></a></n-p> -->
 <!-- 
   <n-timeline>

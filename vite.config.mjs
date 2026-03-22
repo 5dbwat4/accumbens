@@ -108,6 +108,9 @@ export default defineConfig({
       "@md-components": fileURLToPath(
         new URL("./src/components/md-comp", import.meta.url),
       ),
+      "@md-comp": fileURLToPath(
+        new URL("./src/components/md-comp", import.meta.url),
+      ),
     },
   },
   build: {

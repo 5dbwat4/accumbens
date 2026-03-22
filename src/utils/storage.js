@@ -6,12 +6,13 @@ const state = useStorage(
   { 
     fontStyle:"XLWK",
     cursorAnim:!isMobile() ,
-    showPrintNotif: true,
+    showPrintNotif: false,
     keyboardShortcuts: {
-      focusTrap: true,
-      indexSwitchEnabled: true,
+      focusTrap: false,
+      indexSwitchEnabled: false,
       backspaceEnabled: false,
     },
+    hideHeaderWhenPrinting: false,
    },
   localStorage,
   { mergeDefaults: true } 

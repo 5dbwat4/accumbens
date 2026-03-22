@@ -5,6 +5,9 @@
     <n-form-item label="展示引流块" label-placement="left">
       <n-switch v-model:value="state.showPrintNotif" />
     </n-form-item>
+    <n-form-item label="打印时隐藏header和breadcrumb" label-placement="left">
+      <n-switch v-model:value="state.hideHeaderWhenPrinting" />
+    </n-form-item>
   </n-card>
   <n-card title="鼠标指针效果">
     <n-p>*关闭鼠标指针效果后需刷新页面以同步更改</n-p>

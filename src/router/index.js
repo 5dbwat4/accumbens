@@ -19,6 +19,12 @@ const router = createRouter({
       component: () => import('@/pages/about-accumbens.vue')
     },
     {
+      path: '/about-me',
+      name: 'about-me',
+      // component: aboutAccumbens
+      component: () => import('@/pages/about-me.vue')
+    },
+    {
       path: '/',
       name: 'home',
       // component: HomeView
@@ -46,6 +52,11 @@ const router = createRouter({
       path: '/3rd-party-libs',
       name: '3rd-party-libs',
       component: () => import('@/pages/3rd-party-libs.vue')
+    },
+    {
+      path: '/charts',
+      name: 'charts',
+      component: () => import('@/pages/charts.vue')
     },
     {
       path: '/:pathMatch(.*)*',
