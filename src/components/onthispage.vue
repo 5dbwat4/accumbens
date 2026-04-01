@@ -2,7 +2,7 @@
   <div id="table-of-contents" class="table-of-contents" v-if="toc.length>5">
     <p class="toc-hint">On this page:</p>
     <ul >
-      <li v-for="item in toc" :style="{'padding-top': item.depth==1?'0.2em':'0'}">
+      <li v-for="item in toc" :key="item.href" :style="{'padding-top': item.depth==1?'0.2em':'0'}">
         <span class="toc-numbering">{{ item.numbering.join('.') }}</span>
         <a :href="item.href" :style="{'padding-left': 1.5+'em'}">{{ item.value }}</a>
       </li>
@@ -10,7 +10,7 @@
   </div>
 </template>
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 const toc = ref([])
 
 const props = defineProps({
@@ -20,27 +20,36 @@ const props = defineProps({
   }
 })  
 
-// console.log(props.PostRenderHook);
+function extractHeadingText(headingEl) {
+  const rawText = headingEl.textContent || ''
+  return rawText.trim().replace(/^#+\s*/, '')
+}
 
+props.PostRenderHook(() => {
+  const markdownBody = document.querySelector('.markdown-body')
+  if (!markdownBody) {
+    toc.value = []
+    return
+  }
 
-props.PostRenderHook(()=>{
-  // TODO: THIS IS TOO NAIVE!! AND BAD PERFORMANCE!
-  // We should use a more efficient way to generate the table of contents.
+  const selector = 'h1, h2, h3, h4, h5, h6'
+  const headings = Array.from(markdownBody.querySelectorAll(selector))
+  const h1Count = headings.filter((heading) => heading.tagName === 'H1').length
+  const promoteH2AsTopLevel = h1Count === 1
 
-  // We are using some naive solution here.
-  // We filter all h1,h2,h3,etc in .markdown-body, and numbering them.
-
-  const headings = document.querySelectorAll('.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6')
-
-  // console.log(headings);
-  
   const tocList = []
   let numbering = []
-  headings.forEach((heading, index) => {
-    if (!heading.id) return // Skip headings without an id
-    const depth = parseInt(heading.tagName[1]) // Get the depth from the tag name (h1, h2, etc.)
-    
-    // Adjust numbering array based on depth
+
+  headings.forEach((heading) => {
+    if (!heading.id) return
+
+    const originalDepth = Number.parseInt(heading.tagName.slice(1), 10)
+    if (!Number.isFinite(originalDepth)) return
+
+    if (promoteH2AsTopLevel && originalDepth === 1) return
+
+    const depth = promoteH2AsTopLevel ? originalDepth - 1 : originalDepth
+
     if (depth > numbering.length) {
       numbering.push(1)
     } else if (depth < numbering.length) {
@@ -51,12 +60,13 @@ props.PostRenderHook(()=>{
     }
 
     tocList.push({
-      value: heading.textContent.trim().substring(1),// Remove the leading '#' character!!! THIS IS NOT A GOOD SOLUTION!
+      value: extractHeadingText(heading),
       href: `#${heading.id}`,
       depth,
-      numbering: [...numbering] // Create a copy of the current numbering
+      numbering: [...numbering]
     })
   })
+
   toc.value = tocList
 })
 
@@ -114,10 +124,6 @@ props.PostRenderHook(()=>{
     display: flex;
     flex-direction: row;
     margin-bottom: 0.1em;
-}
-
-.table-of-contents .toc-numbering{
-    /* display: table-cell; */
 }
 
 /* .table-of-contents a::before{

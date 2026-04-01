@@ -136,6 +136,7 @@ const demandMap = {
 'php': ()=>import('highlight.js/lib/languages/php'),
 'php-template': ()=>import('highlight.js/lib/languages/php-template'),
 'plaintext': ()=>import('highlight.js/lib/languages/plaintext'),
+'plain': ()=>import('highlight.js/lib/languages/plaintext'),
 'pony': ()=>import('highlight.js/lib/languages/pony'),
 'powershell': ()=>import('highlight.js/lib/languages/powershell'),
 'processing': ()=>import('highlight.js/lib/languages/processing'),

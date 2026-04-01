@@ -95,7 +95,7 @@ import { createHook } from "./utils/hookCtx";
 import state from "@/utils/storage";
 import { reportKeyboardSettings } from "@/utils/keyboard";
 import { computed } from "@vue/runtime-core";
-import { useMounted } from "@vueuse/core";
+import { useMounted, useTitle } from "@vueuse/core";
 
 // import infoRoot from "@notebook-entry/accumbens.config.json"
 
@@ -181,6 +181,7 @@ if (!mdcfg) {
       content_loading_stage.value = 3;
       await nextTick();
       content_loading_stage.value = 4;
+      useTitle(mdcfg.title ? `${mdcfg.title} @ 5dbwat4's Notebook` : "5dbwat4's Notebook");
       handleKatexRender();
       postRenderHooky.run();
       reportKeyboardSettings({

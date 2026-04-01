@@ -52,6 +52,7 @@ import IconHomeTwotone from '/~iconify/line-md/home-twotone';
 // const breadcrumb = await resolveBreadcrumbData(route.path);
 // const breadcrumb = [];
 // console.log(breadcrumb);
+import state from "@/utils/storage";
 </script>
 
 
@@ -60,5 +61,11 @@ import IconHomeTwotone from '/~iconify/line-md/home-twotone';
   display: flex;
   vertical-align: middle;
   align-items: center;
+}
+
+@media print {
+  .breadcrumb{
+    display: v-bind(state.hideHeaderWhenPrinting ? "none" : "flex");
+  }
 }
 </style>

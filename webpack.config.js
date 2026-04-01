@@ -1,14 +1,15 @@
 // Note that this file is only used for compile the service worker
 // And when building, run this file first then vite.
-const path = require('path');
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 
-module.exports = {
+export default {
     mode: 'none',
-    entry: './src/service-worker/index.js',
+    entry: './src/service-worker/worker.js',
     output: {
-        filename: 'sw.js',
-        path: path.resolve(__dirname, 'public'),
+        filename: 'cranium.js',
+        path: path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'public'),
     },
     
 }

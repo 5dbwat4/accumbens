@@ -32,6 +32,15 @@
 
     <!-- <n-button round type="primary">调整按键绑定</n-button> -->
   </n-card>
+
+  <n-divider title-placement="left"> 存储 </n-divider>
+
+  <n-card title="Cache in indexDB">
+    当前Service Worker状态： 
+
+
+  </n-card>
+
 </template>
 <script setup>
 import state from "@/utils/storage";
