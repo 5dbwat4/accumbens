@@ -125,6 +125,9 @@ importers:
       highlight.js:
         specifier: ^11.11.1
         version: 11.11.1
+      highlightjs-riscvasm:
+        specifier: ^0.1.0
+        version: 0.1.0
       hls.js:
         specifier: ^1.6.15
         version: 1.6.15
@@ -1996,6 +1999,9 @@ packages:
   highlight.js@11.11.1:
     resolution: {integrity: sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==}
     engines: {node: '>=12.0.0'}
+
+  highlightjs-riscvasm@0.1.0:
+    resolution: {integrity: sha512-2xFQavPH2oZlunEt4R0jpMN/uRV+/hzn+m6YE+/XArfskV6vjclB3mN3azkigSB/mGrGihrGREQxT2ubC/k6Fw==}
 
   hls.js@1.6.15:
     resolution: {integrity: sha512-E3a5VwgXimGHwpRGV+WxRTKeSp2DW5DI5MWv34ulL3t5UNmyJWCQ1KmLEHbYzcfThfXG8amBL+fCYPneGHC4VA==}
@@ -5359,6 +5365,8 @@ snapshots:
       space-separated-tokens: 2.0.2
 
   highlight.js@11.11.1: {}
+
+  highlightjs-riscvasm@0.1.0: {}
 
   hls.js@1.6.15: {}
 

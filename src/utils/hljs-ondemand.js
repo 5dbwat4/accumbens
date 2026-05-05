@@ -196,6 +196,13 @@ const demandMap = {
 'xl': ()=>import('highlight.js/lib/languages/xl'),
 'xquery': ()=>import('highlight.js/lib/languages/xquery'),
 'zephir': ()=>import('highlight.js/lib/languages/zephir'),
+
+
+
+
+
+'riscv': ()=>import('highlightjs-riscvasm'),
+'riscvasm': ()=>import('highlightjs-riscvasm'),
 }
 console.log(`Demanding language: ${language}`)
 if(language in demandMap){
