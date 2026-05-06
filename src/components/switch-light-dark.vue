@@ -12,10 +12,10 @@
 //   IconMoonFilled,
 //   IconSunnyFilled,
 // } from "@iconify-prerendered/vue-line-md";
-import IconMoonFilledToSunnyFilledLoopTransition from '/~iconify/line-md/moon-filled-to-sunny-filled-loop-transition';
-import IconSunnyFilledLoopToMoonFilledLoopTransition from '/~iconify/line-md/sunny-filled-loop-to-moon-filled-loop-transition';
-import IconMoonFilled from '/~iconify/line-md/moon-filled';
-import IconSunnyFilled from '/~iconify/line-md/sunny-filled';
+import IconMoonFilledToSunnyFilledLoopTransition from '~icons/line-md/moon-filled-to-sunny-filled-loop-transition';
+import IconSunnyFilledLoopToMoonFilledLoopTransition from '~icons/line-md/sunny-filled-loop-to-moon-filled-loop-transition';
+import IconMoonFilled from '~icons/line-md/moon-filled';
+import IconSunnyFilled from '~icons/line-md/sunny-filled';
 import { ref } from "vue";
 
 const CurrComponent = ref(null);

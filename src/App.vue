@@ -96,9 +96,9 @@ import { onMounted, ref } from "vue";
 //   IconList3Twotone,
 //   IconGithubLoop,
 // } from "@iconify-prerendered/vue-line-md";
-import IconGithubLoop from "/~iconify/line-md/github-twotone-loop";
-import IconSearchTwotone from "/~iconify/line-md/search-twotone";
-import IconList3Twotone from "/~iconify/line-md/list-3-twotone";
+import IconGithubLoop from "~icons/line-md/github-twotone-loop";
+import IconSearchTwotone from "~icons/line-md/search-twotone";
+import IconList3Twotone from "~icons/line-md/list-3-twotone";
 import { SettingsOutline } from "@vicons/ionicons5";
 import state from "./utils/storage";
 // import katex from "katex";

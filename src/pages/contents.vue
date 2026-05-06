@@ -35,7 +35,7 @@ import customCollapse from "@/components/custom-collapse.vue";
 import dirList from "@/components/dir-content-main.vue";
 
 // import flip from "@/assets/fluent~card-ui-portrait-flip-16-regular.vue";
-import flip from '/~iconify/fluent/card-ui-portrait-flip-16-regular';
+import flip from '~icons/fluent/card-ui-portrait-flip-16-regular';
 import { useTitle } from '@vueuse/core'
 useTitle("Contents - 5dbwat4's Notebook");
 
