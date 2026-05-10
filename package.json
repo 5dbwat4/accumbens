@@ -9,6 +9,8 @@
   "type": "module",
   "keywords": [],
   "dependencies": {
+    "@iconify-json/hugeicons": "^1.2.27",
+    "@iconify-json/material-symbols-light": "^1.2.70",
     "@iconify/css-vue": "^1.0.2",
     "@iconify/vue": "^4.3.0",
     "@mdx-js/esbuild": "^3.1.1",
@@ -111,9 +113,11 @@
   "license": "MIT",
   "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316",
   "devDependencies": {
+    "@iconify-json/akar-icons": "^1.2.7",
     "@iconify-json/fluent": "^1.2.46",
     "@iconify-json/line-md": "^1.2.16",
     "@iconify-json/material-symbols": "^1.2.70",
+    "@iconify-json/solar": "^1.2.5",
     "unplugin-icons": "^23.0.1",
     "webpack-cli": "^7.0.2"
   }

@@ -40,6 +40,10 @@ import IconErrorRounded from '~icons/material-symbols-light/error-rounded';
 import IconTask from '~icons/material-symbols/task';
 import IconFire from '~icons/hugeicons/fire';
 import IconPrompt from '~icons/fluent/prompt-16-filled';
+import IconLightbulb2OutlineRounded from '~icons/material-symbols-light/lightbulb-2-outline-rounded';
+import IconStickyNote2OutlineRounded from '~icons/material-symbols-light/sticky-note-2-outline-rounded';
+import IconHelpOutlineRounded from '~icons/material-symbols-light/help-outline-rounded';
+import IconDescriptionOutlineRounded from '~icons/material-symbols-light/description-outline-rounded';
 import { useAttrs } from '@vue/runtime-core';
 
 const CONFIG = {
@@ -74,6 +78,26 @@ const CONFIG = {
     "prompt":{
       icon: IconPrompt,
       primaryColor: '#36a11f'
+    },
+    "example":{
+        icon: IconLightbulb2OutlineRounded,
+        primaryColor: "#2196f3",
+    },
+    "note":{
+        icon: IconStickyNote2OutlineRounded,
+        primaryColor: "#2196f3",
+    },
+    "question":{
+        icon: IconHelpOutlineRounded,
+        primaryColor: "#f44336",
+    },
+    "abstract":{
+        icon: IconDescriptionOutlineRounded,
+        primaryColor: "#2196f3",
+    },
+    "warning":{
+        icon: IconWarningRounded,
+        primaryColor: "#f44336",
     }
 
 }
