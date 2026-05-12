@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 <canvas id="canvas" style="width: 600px; height: 400px;" width="1200" height="800"></canvas>
 </template>
 <script setup>
@@ -149,4 +149,6 @@ onMounted(() => {
 			}
 
 });
-</script>
+</script> -->
+
+<template></template>
