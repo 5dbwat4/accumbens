@@ -1,4 +1,4 @@
-import * as THREE from '@/utils/404-three-tools/three.module.js';
+import * as THREE from './three.module.js';
 import { OrbitControls } from './OrbitControls.js';
 import { VoxelWorld } from './VoxelWorld.js';
 import { getTextVoxels, getPlatformVoxels, getTotalSceneBounds } from './textLayout.js';

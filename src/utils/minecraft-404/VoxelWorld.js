@@ -1,4 +1,4 @@
-import * as THREE from '@/utils/404-three-tools/three.module.js';
+import * as THREE from './three.module.js';
 
 const faces = [
 	{ // left
