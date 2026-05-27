@@ -151,4 +151,13 @@ onMounted(() => {
 });
 </script> -->
 
-<template></template>
+<template>
+
+	<notFoundPage />
+</template>
+
+<script>
+import {defineAsyncComponent} from "vue";
+import notFoundPage from "@/components/404.vue";
+
+</script>
