@@ -1,5 +1,5 @@
 <template>
-  <n-collapse-item :title="$attrs.nav.name" :name="$attrs.nav.path[0]">
+  <n-collapse-item :title="$attrs.nav.name" :name="$attrs.nav.path">
     <!-- <template #header-extra>
       <span class="clp-extra">{{ $attrs.nav.key }}</span>
     </template> -->
@@ -16,7 +16,7 @@
       v-if="$attrs.nav.leaf"
       v-for="item in $attrs.nav.entries"
       :key="item.path"
-      @click="$router.push('/'+$attrs.nav.path[0]+'/'+item.path)"
+      @click="$router.push('/'+$attrs.nav.path+'/'+item.path)"
     >
       <template #icon>
         <n-icon>
