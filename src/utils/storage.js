@@ -5,7 +5,7 @@ const state = useStorage(
   '5dbwat4-proj--accumbens--settings',
   { 
     fontStyle:"XLWK",
-    cursorAnim:!isMobile() ,
+    cursorAnim:false ,
     showPrintNotif: false,
     keyboardShortcuts: {
       focusTrap: false,
