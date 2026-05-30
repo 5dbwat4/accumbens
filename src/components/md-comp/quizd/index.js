@@ -1,0 +1,5 @@
+export { default as Q } from './ExamQ.vue'
+export { default as Choice } from './ExamChoice.vue'
+export { default as Analysis } from './ExamAnalysis.vue'
+export { default as Blank } from './ExamBlank.vue'
+export { default as examCmp } from './examCmp.vue'
