@@ -23,6 +23,7 @@ import detailPlugin from "./utils/rollup-plugin-bundleDetail";
 import list3rdpartylist from "./utils/unplugin-list-3rd-party-libs";
 import compileDocTreePlugin from "./utils/vite-plugin-compile-doc-tree.mjs";
 import mdRelativeImageUrlPlugin from "./utils/vite-plugin-md-relative-image-url.mjs";
+import buildInfoPlugin from "./utils/vite-plugin-build-info.mjs";
 
 // function getModuleNameFromPath(path) {
 //   // Regular expression to match the module name pattern
@@ -52,7 +53,7 @@ import mdRelativeImageUrlPlugin from "./utils/vite-plugin-md-relative-image-url.
 const chunk_get_name = (id) => {
   const prefix = id.type === "chunk" ? "" : "assets/";
   if (id.type === "asset") {
-    if(id.originalFileName && id.originalFileName.includes("/noting/")){
+    if(id.originalFileName && id.originalFileName.includes("noting/")){
       return `assets/neuron.[hash][extname]`;
     }else{
       return `assets/myelin.[hash][extname]`;
@@ -98,6 +99,7 @@ Icons({
     }),
     
     list3rdpartylist(),
+    buildInfoPlugin(),
   ],
   resolve: {
     alias: {
