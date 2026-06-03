@@ -3,7 +3,7 @@ import { OrbitControls } from './OrbitControls.js';
 import { VoxelWorld } from './VoxelWorld.js';
 import { getTextVoxels, getPlatformVoxels, getTotalSceneBounds } from './textLayout.js';
 
-const textureFiles = import.meta.glob('./assets/*.png', { eager: true, as: 'url' });
+const textureFiles = import.meta.glob('./assets/*.png', { eager: true, query: '?url', import: 'default' });
 
 const allTextures = [];
 for (const [path, url] of Object.entries(textureFiles)) {
