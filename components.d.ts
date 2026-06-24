@@ -30,6 +30,8 @@ declare module 'vue' {
     IndexAlternativeSwitch: typeof import('./src/components/index-alternative-switch.vue')['default']
     LetterEffects: typeof import('./src/components/md-comp/letter-effects.vue')['default']
     LoadingSkeletons: typeof import('./src/components/LoadingSkeletons.vue')['default']
+    Mermaid: typeof import('./src/components/md-comp/Mermaid.vue')['default']
+    MermaidRender: typeof import('./src/components/md-comp/MermaidRender.vue')['default']
     MermaidSupport: typeof import('./src/components/md-comp/mermaidSupport.vue')['default']
     NavGithubCk: typeof import('./src/components/nav-github-ck.vue')['default']
     NBackTop: typeof import('naive-ui')['NBackTop']
