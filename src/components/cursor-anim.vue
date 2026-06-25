@@ -177,7 +177,7 @@ onMounted(() => {
     },
   };
 
-  if (!isMobile() && state.value.cursorAnim) {
+  if (!isMobile() && state.value.cursorAnimV2) {
     cursor.init();
     // window.updateCursorAnim = () => {
     //   cursor.initAnchors();
@@ -191,7 +191,7 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
+<style>
 .cursor-dot,
 .cursor-dot-outline {
   pointer-events: none;

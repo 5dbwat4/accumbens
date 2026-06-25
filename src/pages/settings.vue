@@ -12,7 +12,7 @@
   <n-card title="鼠标指针效果">
     <n-p>*关闭鼠标指针效果后需刷新页面以同步更改</n-p>
     <n-form-item label="开启鼠标指针效果" label-placement="left">
-      <n-switch v-model:value="state.cursorAnim" />
+      <n-switch v-model:value="state.cursorAnimV2" />
     </n-form-item>
   </n-card>
 
