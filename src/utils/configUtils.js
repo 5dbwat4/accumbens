@@ -30,38 +30,44 @@ const loadCategory = async (category) => {
     return category
 }
 
+const isSameOrChildPath = (targetPath, categoryPath) => {
+    if (typeof categoryPath !== 'string') return false
+    if (categoryPath === '') return true
+    return targetPath === categoryPath ||
+        targetPath === categoryPath + '/' ||
+        targetPath.startsWith(categoryPath + '/')
+}
+
 const getEntry = async (path) => {
     let flag_path_type = []
     let found = false
     const move = async (category, breadcrumb) => {
         if(found) return;
+        if (!isSameOrChildPath(path, category.path)) return;
         const categoryLoaded = await loadCategory(category)
 
         breadcrumb.push({name: categoryLoaded.name, path: categoryLoaded.path})
-        let certainPath;
-
-        if(typeof categoryLoaded.path === 'string' && path.startsWith(categoryLoaded.path)){
-            certainPath = categoryLoaded.path
-            if(path == certainPath){
+        const certainPath = categoryLoaded.path
+        if(path == certainPath){
+            flag_path_type.push('dir');
+            found = withBreadcrumb(categoryLoaded, breadcrumb)
+            return ;
+        }
+        if(path == certainPath+'/'){
+            if(categoryLoaded.index){
+                flag_path_type.push('index');
+                found = withBreadcrumb(categoryLoaded.entries.find(x=>x.unikey == categoryLoaded.index), breadcrumb)
+            }else{
                 flag_path_type.push('dir');
                 found = withBreadcrumb(categoryLoaded, breadcrumb)
-                return ;
             }
-            if(path == certainPath+'/'){
-                if(categoryLoaded.index){
-                    flag_path_type.push('index');
-                found = withBreadcrumb(categoryLoaded.entries.find(x=>x.unikey == categoryLoaded.index), breadcrumb)
-                }else{
-                    flag_path_type.push('dir');
-                    found = withBreadcrumb(categoryLoaded, breadcrumb)
-                }
-                return ;
+            return ;
 
-            }
-            if(categoryLoaded.entries?.find(x=>certainPath+'/'+x.path == path)){
-                found = withBreadcrumb(categoryLoaded.entries.find(x=>certainPath+'/'+x.path == path), breadcrumb)
-                return ;
-            }
+        }
+        const matchedEntry = categoryLoaded.entries?.find(x=>certainPath+'/'+x.path == path)
+        if(matchedEntry){
+            found = withBreadcrumb(matchedEntry, breadcrumb)
+            return ;
         }
         if(!found && !categoryLoaded.leaf){
             for (const subcategory of (categoryLoaded.subcategories || [])) {
