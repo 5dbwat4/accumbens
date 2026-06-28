@@ -57,27 +57,102 @@
   padding: 0.8rem 0.85rem 0.32rem;
 }
 
-.ptaquiz-question--programming {
+.ptaquiz-code-content {
+  margin: 0.55rem 0;
+  border: 1px solid var(--ptaquiz-border-muted);
+  border-radius: 6px;
+  padding: 0.7rem 0.8rem;
+  background: var(--ptaquiz-muted-bg);
+  overflow-x: auto;
+}
+
+.markdown-body .ptaquiz-code-content {
+  padding: 0.7rem 0.8rem;
+  background: var(--ptaquiz-muted-bg);
+}
+
+.ptaquiz-code-content code {
+  display: block;
+  min-width: max-content;
+  color: var(--ptaquiz-text);
   font-family: var(--fontStack-monospace, ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace);
   font-size: 0.9rem;
-  line-height: 1.45;
-  white-space: pre-wrap;
-  overflow-wrap: normal;
-  word-break: normal;
+  line-height: 1.5;
   tab-size: 2;
+  white-space: pre;
 }
 
-.ptaquiz-question--programming :where(p, pre) {
+.markdown-body .ptaquiz-code-content > code {
+  display: block;
+  max-width: none;
+  padding: 0;
   margin: 0;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre;
+  word-break: normal;
+  word-wrap: normal;
 }
 
-.ptaquiz-question--programming .ptaquiz-blank {
-  font-family: inherit;
+.ptaquiz-code-content code,
+.ptaquiz-code-content code * {
+  white-space: inherit;
 }
 
-.ptaquiz-question--programming .ptaquiz-blank-input {
-  font-family: inherit;
-  line-height: 1.2;
+.ptaquiz-code-content .ptaquiz-blank {
+  display: inline-flex;
+}
+
+.ptaquiz-code-content .ptaquiz-blank-input {
+  min-width: 4.5rem;
+  background: var(--ptaquiz-bg);
+  text-align: left;
+}
+
+.ptaquiz-code-content .hljs-comment,
+.ptaquiz-code-content .hljs-quote {
+  color: #6e7781;
+}
+
+.ptaquiz-code-content .hljs-keyword,
+.ptaquiz-code-content .hljs-selector-tag,
+.ptaquiz-code-content .hljs-subst {
+  color: #cf222e;
+}
+
+.ptaquiz-code-content .hljs-literal,
+.ptaquiz-code-content .hljs-number,
+.ptaquiz-code-content .hljs-variable,
+.ptaquiz-code-content .hljs-template-variable {
+  color: #0550ae;
+}
+
+.ptaquiz-code-content .hljs-string,
+.ptaquiz-code-content .hljs-doctag,
+.ptaquiz-code-content .hljs-regexp {
+  color: #0a3069;
+}
+
+.ptaquiz-code-content .hljs-title,
+.ptaquiz-code-content .hljs-section,
+.ptaquiz-code-content .hljs-selector-id {
+  color: #8250df;
+}
+
+.ptaquiz-code-content .hljs-type,
+.ptaquiz-code-content .hljs-class .hljs-title,
+.ptaquiz-code-content .hljs-attribute {
+  color: #953800;
+}
+
+.ptaquiz-code-content .hljs-symbol,
+.ptaquiz-code-content .hljs-bullet,
+.ptaquiz-code-content .hljs-built_in,
+.ptaquiz-code-content .hljs-builtin-name {
+  color: #116329;
 }
 
 .ptaquiz-choices {

@@ -95,6 +95,7 @@ export default {
     }
 
     provide(PTA_FILL_BLANK_KEY, {
+      variant: computed(() => props.variant),
       submitted,
       peekEnabled,
       resetNonce,

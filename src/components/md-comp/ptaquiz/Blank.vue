@@ -10,6 +10,7 @@ let nextBlankId = 0;
 
 export default {
   name: "PTAQuizBlank",
+  __ptaQuizPart: "blank",
   setup(_, { slots }) {
     const context = inject(PTA_FILL_BLANK_KEY, null);
     const id = `pta-blank-${++nextBlankId}`;
