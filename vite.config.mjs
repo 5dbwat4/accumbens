@@ -95,6 +95,10 @@ Icons({
       resolvers: [ElementPlusResolver(), NaiveUiResolver()],
     }),
     Components({
+      globs: [
+        "src/components/**/*.vue",
+        "!src/components/md-comp/ptaquiz/**/*.vue",
+      ],
       resolvers: [ElementPlusResolver(), NaiveUiResolver()],
     }),
     
