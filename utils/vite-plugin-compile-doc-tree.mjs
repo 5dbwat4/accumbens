@@ -1,4 +1,4 @@
-import { compileDocTree } from "../scripts/lib/compile-doc-tree-core.mjs";
+import { compileDocTree } from "./compile-doc-tree-core.mjs";
 
 const isNoteStructureFile = (filePath) => {
   const normalized = filePath.replace(/\\/g, "/");

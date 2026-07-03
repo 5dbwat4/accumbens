@@ -18,37 +18,10 @@ import Icons from 'unplugin-icons/vite'
 
 import remarkToolchain from "./utils/remark-toolchain";
 
-import encryptPlugin from "./utils/rollup-plugin-encrypt";
-import detailPlugin from "./utils/rollup-plugin-bundleDetail";
 import list3rdpartylist from "./utils/unplugin-list-3rd-party-libs";
 import compileDocTreePlugin from "./utils/vite-plugin-compile-doc-tree.mjs";
 import mdRelativeImageUrlPlugin from "./utils/vite-plugin-md-relative-image-url.mjs";
 import buildInfoPlugin from "./utils/vite-plugin-build-info.mjs";
-
-// function getModuleNameFromPath(path) {
-//   // Regular expression to match the module name pattern
-//   const regex = /\/\.pnpm\/([^/]+)\/node_modules\//;
-
-//   // Extract the module name using the regex
-//   const match = path.match(regex);
-
-//   // If a match is found, return the captured group (module name)
-//   if (match && match[1]) {
-//     return match[1];
-//   }
-
-//   // If no match is found, return null or an appropriate message
-//   return "";
-// }
-
-// function getPageModuleNameFromPath(path) {
-//   const regex = /\/noting\/(.+)\//;
-//   const match = path.match(regex);
-//   if (match && match[1]) {
-//     return match[1].replace(/-/g, "--").replace(/\//g, "-");
-//   }
-//   return "";
-// }
 
 const chunk_get_name = (id) => {
   const prefix = id.type === "chunk" ? "" : "assets/";
