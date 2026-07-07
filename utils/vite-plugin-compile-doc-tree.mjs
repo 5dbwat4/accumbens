@@ -11,11 +11,12 @@ const isNoteStructureFile = (filePath) => {
   );
 };
 
-export default function compileDocTreePlugin() {
+export default function compileDocTreePlugin(pluginOptions = {}) {
   let root = process.cwd();
   let lastRun = Promise.resolve();
+  let command = "serve";
   let options = {
-    maxEntriesPerBucket: 128,
+    maxEntriesPerBucket: pluginOptions.maxEntriesPerBucket || 128,
   };
 
   const runCompile = async ({ reason, mode, logger, onAfter }) => {
@@ -26,6 +27,7 @@ export default function compileDocTreePlugin() {
         mode,
         includeContentHash: mode === "production",
         maxEntriesPerBucket: options.maxEntriesPerBucket,
+        logger,
       });
       logger?.info?.(
         `[accumbens] doc tree updated (${reason}) entries=${result.totalEntries}, configChunks=${result.configChunkCount}, entryChunks=${result.entryChunkCount}`,
@@ -43,14 +45,17 @@ export default function compileDocTreePlugin() {
     enforce: "pre",
     configResolved(config) {
       root = config.root;
+      command = config.command;
       options = {
         ...options,
-        config
+        config,
       }
     },
     async buildStart() {
+      if (command !== "build") return;
       const buildLogger = {
         info: (msg) => this.info(msg),
+        warn: (msg) => this.warn(msg),
       };
       await runCompile({ reason: "buildStart", mode: "production", logger: buildLogger });
     },

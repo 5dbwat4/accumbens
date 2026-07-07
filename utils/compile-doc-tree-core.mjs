@@ -34,6 +34,7 @@ export async function compileDocTree(options = {}) {
     notingRootAbs,
     mode,
     includeContentHash,
+    logger: options.logger,
   });
 
   const parsedRoot = await parser.parseCategory(notingRootAbs);
