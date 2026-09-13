@@ -76,6 +76,7 @@ import { date_format } from "./utils/date-format";
 import { NTable } from "naive-ui";
 import AccHeading from "./components/md-comp/accHeading.vue";
 import CodeBlocks from "./components/md-comp/CodeBlocks.vue";
+import LinkCard from "./components/md-comp/link-card.vue";
 // import dirList from "./components/dir-content-main.vue";
 const dirList = defineAsyncComponent(() =>
   import("./components/dir-content-main.vue")
@@ -136,9 +137,9 @@ console.log(mdcfg);
 const defaultComponents = {
   "acc-heading": AccHeading,
   "code-blocks": CodeBlocks,
-  // table: NTable,
   "element-a": ElementAHandler,
   "n-image": NImage,
+  "link-card": LinkCard,
 };
 
 const postRenderHooky = createHook();
