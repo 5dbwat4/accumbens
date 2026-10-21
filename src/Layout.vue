@@ -97,6 +97,7 @@ import state from "@/utils/storage";
 import { reportKeyboardSettings } from "@/utils/keyboard";
 import { computed } from "@vue/runtime-core";
 import { useMounted, useTitle } from "@vueuse/core";
+import Settings from "./pages/settings.vue";
 
 // import infoRoot from "@notebook-entry/accumbens.config.json"
 

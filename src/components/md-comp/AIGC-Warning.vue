@@ -16,6 +16,8 @@ import { computed } from "vue";
 import IconSmartToy from "~icons/material-symbols-light/smart-toy";
 import IconNeurology from "~icons/material-symbols-light/neurology";
 import IconPsychology from "~icons/material-symbols-light/psychology";
+import IconFace from "~icons/akar-icons/face-happy";
+import IconVomiting from "~icons/hugeicons/vomiting";
 
 const LEVELS = {
   uncensored: {
@@ -39,6 +41,20 @@ const LEVELS = {
     message:
       "This content is written with AI assistance and has been reviewed by the author.",
   },
+  human: {
+        type: "info",
+    icon: IconFace,
+    title: "Real human generated this content",
+    message:
+      "This content is fully written by HUMAN, feel free to read.",
+  },
+  slut: {
+    type: "error",
+    icon: IconVomiting,
+    title: "AI generated slut",
+    message:
+      "This content is indeed reviewed by a human, and it is too disgusting to be continued.",
+  }
 };
 
 const props = defineProps({

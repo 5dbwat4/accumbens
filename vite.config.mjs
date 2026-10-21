@@ -48,6 +48,9 @@ const chunk_get_name = (id) => {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    "process.env.IS_PREACT": JSON.stringify("false"),
+  },
   plugins: [
     compileDocTreePlugin({
       maxEntriesPerBucket: 128,
