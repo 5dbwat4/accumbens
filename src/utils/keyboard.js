@@ -50,14 +50,14 @@ function updateFocusTrap() {
     // }else{
     //     trapArea = document.querySelector('main');
     // }
-    console.log(document.querySelector('.markdown-body'));
+    console.log(document.querySelector('#markdown-body'));
     if(config.MainareaIsMarkdown){
-        document.querySelectorAll('.markdown-body > *, .markdown-body a').forEach(el => {
+        document.querySelectorAll('#markdown-body > *, #markdown-body a').forEach(el => {
                 el.setAttribute('tabindex', '0');
                 el.classList.add('focus-trap-target');
         });
     }
-    trap = focusTrap.createFocusTrap(document.querySelector('.markdown-body'), {
+    trap = focusTrap.createFocusTrap(document.querySelector('#markdown-body'), {
         // escapeDeactivates: false,
         allowOutsideClick: true,
     });

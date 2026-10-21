@@ -26,7 +26,7 @@ function extractHeadingText(headingEl) {
 }
 
 props.PostRenderHook(() => {
-  const markdownBody = document.querySelector('.markdown-body')
+  const markdownBody = document.querySelector('#markdown-body')
   if (!markdownBody) {
     toc.value = []
     return

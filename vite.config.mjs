@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 import Vue from "@vitejs/plugin-vue";
 import VueJsx from "@vitejs/plugin-vue-jsx";
+import TailwindCSS from "@tailwindcss/vite";
 
 // import { defineConfig } from 'vite'
 import AutoImport from "unplugin-auto-import/vite";
@@ -52,6 +53,7 @@ export default defineConfig({
     "process.env.IS_PREACT": JSON.stringify("false"),
   },
   plugins: [
+    TailwindCSS(),
     compileDocTreePlugin({
       maxEntriesPerBucket: 128,
     }),

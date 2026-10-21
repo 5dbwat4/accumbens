@@ -16,7 +16,7 @@
     v-if="content_loading_stage >= 3"
   />
   <main
-    class="markdown-body"
+    class="prose prose-neutral dark:prose-invert max-w-none mx-auto"
     id="markdown-body"
     v-if="content_loading_stage >= 1"
   >
@@ -241,19 +241,6 @@ router.beforeEach((to, from, next) => {
   letter-spacing: 0.05em;
   margin-bottom: 1em;
 }
-.markdown-body {
-  /* font-family: LXGW-Wenkai-Screen; */
-  font-family: "Roboto", sans-serif;
-  /* font-size: 1.2em; */
-  /* line-height: 1.8em; */
-  /* padding: 1em; */
-  /* border-radius: 0.5em; */
-  /* background-color: #f0f0f0; */
-  /* border: 1px dotted #a0a0a0; */
-  margin: 1em;
-  margin: auto;
-}
-
 .postconfig-bottom {
   font-size: 0.8em;
   /* line-height: 0%; */
@@ -289,5 +276,36 @@ router.beforeEach((to, from, next) => {
 }
 </style>
 
-<style src="@/assets/markdown-overwrite.css"></style>
+<style>
+.header-anchor {
+  position: absolute;
+  transform: translateX(-1em);
+  text-decoration: none;
+  color: #222;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+h1:is(:hover, :target) > .header-anchor,
+h2:is(:hover, :target) > .header-anchor,
+h3:is(:hover, :target) > .header-anchor,
+h4:is(:hover, :target) > .header-anchor,
+h5:is(:hover, :target) > .header-anchor,
+h6:is(:hover, :target) > .header-anchor {
+  opacity: 0.5;
+}
+
+.header-anchor:hover {
+  text-decoration: none !important;
+  opacity: 1 !important;
+}
+
+.image-caption {
+  color: #777;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+</style>
 <!-- <style src="@/assets/md-custom-toc.css"></style> -->
