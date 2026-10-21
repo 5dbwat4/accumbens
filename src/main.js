@@ -1,7 +1,6 @@
 // import './assets/reset.css'
 import './assets/global.css'
 import './assets/fonts.css'
-import './assets/tailwind.css'
 // import './assets/init.css'
 
 // import ui from '@nuxt/ui/vue-plugin'
